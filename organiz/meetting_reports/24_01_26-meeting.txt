@@ -1,0 +1,32 @@
+
+*RAPPELS
+    organisation du travail
+    utilisation du git 
+
+
+*COMPREHENSION DU SUJET
+    explication du sujet 
+    la notion d'unification
+
+
+
+*AMELIORATIONS A FAIRE
+
+    le cahier des besoins
+
+    Pour clarifier un besoin fonctionnel on peut crypter un scenario test
+
+    le format d'exportation à préciser 
+
+    les besoins fonctionnels à détailler 
+
+    la notion de recherche d'un lexique 
+        -les filtres pour les recherches 
+
+    la gestion des roles 
+    la complexité du contenu de la base de données
+
+
+
+
+
