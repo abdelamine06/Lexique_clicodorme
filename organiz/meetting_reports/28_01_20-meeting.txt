@@ -1,19 +1,21 @@
 
 
-reprise de l'introduction en considérant les apports du client 
+*Reprise de l'introduction en considérant les apports du client 
 
-expliquer l'utilisation des transducteur, des unificateurs,
+*Expliquer l'utilisation des transducteur(genre,congugaison,nombre, temps ....), des unificateurs (EXPRESSION => Construction gramatical?,
+Les Formes et le sens)
 
-détailler le LeFFF, le contenu le format des fichiers ....
+*Détailler le LeFFF, le contenu le format des fichiers ....
 
-Front-End
+Front-End(Portfolio WEB)
 -rechercher
 -modification
     *ajouter
     *supprimer
+-Affichage des recherche par filtres eventuellement
+-Exportation du lexique rechercher
 
-
-Back-End
+Back-End(lexical)
 -Gestion des utilisateurs
 -Gestion du LeFFF (ajout,modification...)
 
@@ -27,8 +29,10 @@ Back-End
         -unification: 
             *construction grammaticale des expression
             *trouver le sens d'un mot ou d'une expression
+-Revenir sur les besoins non fonctionnel:
+	*Analyse de la complexité des algorithmes implementer(les algo naives vont pas marché, en revanche l'algoriheme de l'unification sera exponentiel
 
-ajouter une bibliographie
+-ajouter une bibliographie
 
 
 Questions au client
