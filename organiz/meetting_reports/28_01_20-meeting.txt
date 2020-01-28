@@ -1,0 +1,36 @@
+
+
+reprise de l'introduction en considérant les apports du client 
+
+expliquer l'utilisation des transducteur, des unificateurs,
+
+détailler le LeFFF, le contenu le format des fichiers ....
+
+Front-End
+-rechercher
+-modification
+    *ajouter
+    *supprimer
+
+
+Back-End
+-Gestion des utilisateurs
+-Gestion du LeFFF (ajout,modification...)
+
+
+à retravailler
+-la compréhension du LeFFF dans la description de l'existant
+    *presentation de la base de données LeFFF
+    *détailler les informations contenues dans LeFFF
+    *comment l'exploiter : 
+        -formation de mots avec les transducteurs
+        -unification: 
+            *construction grammaticale des expression
+            *trouver le sens d'un mot ou d'une expression
+
+ajouter une bibliographie
+
+
+Questions au client
+-sur la base de données partir de ZERO ? ou Préremplir avec LeFFF ?
+
