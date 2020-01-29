@@ -22,11 +22,21 @@ Lors de nos différents échanges avec le client nous avons pu identifier ses be
 {Nous offrirons la possibilité de modifier un mot ou expression du \textbf{lexique} en modifiant un ou plusieurs champs de la structure du \textbf{FFF} de ce mot.\par}
  
 \subsection{Gérer les rôles}
+Nous mettrons en place un système à trois \textbf{types d'utilisateurs}:
+\begin{itemize}
+\item \textbf{Utilisateur}:  peut \textbf{consulter} et extraire le lexique.
+\item \textbf{Contributeur}: peut \textbf{s'inscrir, valider,supprimer} son compte, d'autres part il a la possibilité de \textbf{modifier} le lexique et faire ce que fait un utilisateur,
+\item \textbf{Administrateur}: \textbf{gère les droits} des autres utilisateurs (faire passer certains utilisateurs modérateurs et vis versa) et peut faire ce que fait un modérateur.
+\end{itemize}
+{Cette façon de gérer les rôles reste simple mais efficace qui permettra de limiter au maximum les erreurs dans les ajout d'éléments dans le \textbf{lexique}.\par}
 
-{Ici nous avons plusieurs possibilités, la première est que seuls des personnes autorisées peuvent ajouter, modifier ou supprimer des mots du \textbf{lexique}. La deuxième est une forme collaborative par tout utilisateur qui pourront ajouter, modifier ou supprimer des mots, cette solution apportera des difficultés car il faudra pouvoir gérer l'historique des modifications pour pouvoir revenir dans un état antérieur.\par}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.3]{uml.png}
+    \caption{Gestion des rôles des utilisateurs }
+\end{figure}
 
-Comme tout site internet le nôtre aura différents \textbf{types d'utilisateurs}. Pour contrôler les interactions de ces utilisateurs et garantir l'intégrité des données un système de rôle sera mis en place sur le site.
- 
+
  \subsection{Exporter le LeFFF}
 
 {Nous offrirons la possibilité d'exporter le \textbf{lexique} sélectionné avec un \textbf{filtre} afin que l'utilisateur puisse le \textbf{télécharger}\par}
