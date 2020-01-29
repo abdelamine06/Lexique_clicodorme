@@ -1,39 +1,33 @@
 
 \newpage
 \section{Introduction}
-\subsection{Contexte}
-Dans le cadre de notre Cursus de Master 1 Informatique à l'Université de bordeaux, nous devons au compte de 
-l'unité d'enseignement Projet de Programmation réaliser par groupe de cinq étudiants un projet de développement
- informatique. Nous travaillons avec Monsieur \textbf{Lionel CLEMENT} notre client et monsieur \textbf{Simon ARCHIPOFF}
- chargé de l'encadrement de nos travaux dirigés.
-
 \subsection{Présentation du projet}
-
-{\textbf{Lionel CLEMENT}, spécialisé dans le domaine de la linguistique formelle et du traitement automatique des langues
- est un enseignant chercheur au Laboratoire Bordelais de Recherche en Informatique(\textbf{LABRI}). Il a réalisé avec 
- \textbf{Benoit SAGOT} chercheur à l'Institut National de Recherche en Informatique et Automatique(\textbf{INRIA})  le Lexique
-  électronique des formes fléchies du français, qu'ils ont appelé \textbf{LeFFF}.\par}
-{Le français est une langue, une langue peut-être définie comme un ensemble de signes oraux et écrits qui permettent à un groupe
- d'individus de communiquer. Les mots qui forment le français se repartissent en neuf classes: les noms, les déterminants, les adjectifs
-  qualificatifs, les pronoms, les verbes, les adverbes,les prépositions, les conjonctions de coordination et les interjections. Partant 
-  de cette classification on peut dire que les formes fléchies d'un mot correspondent aux différentes déclinaisons de ce mot (sa conjugaison 
-  pour un verbe, son singulier et son pluriels pour certaines catégories de mots, ses synonymes,...
-Dans le \textbf{LAROUSSE}, un \textit{\bf lexique} est un dictionnaire spécialisé et généralement succinct concernant un domaine 
-particulier de la connaissance, c'est une ressource complexe constituée de \textit{lexèmes}, de \textit{vocables}, de \textit{catégories} 
-et \textit{sous-catégories syntaxiques}, de \textit{catégories grammaticales}, de \textit{règles de flexion}, de \textit{valence}, de 
-\textit{phraséologie}, de \textit{fonctions lexicales},...\par}
-
-{Habituellement un dictionnaire est utilisé pour trouver la signification d'un mot qu'on connaît et il n'offre pas la possibilité de faire
- l'inverse, c'est à dire qu'à partir d'explications ou d'une liste de mots trouver le mot correspondant (un gain de temps considérable pour tous).
-  Aujourd'hui \textbf{LeFFF} est un fichier texte et il n'existe aucun outil qui en facilite l'accès et la compréhension encore moins sa 
-  modification ou son enrichissement. Le \textbf{LeFFF} actuel souffre d'un manque de traçabilité et n'offre aucune garantie pour contrôler 
-  les modifications\par}
-
-{L'objectif de ce projet est donc d'implémenter une application Web liée à une base de données(qui contiendra les mots du lexique) pour faciliter 
-les interactions avec le lexique (consultation, ajout, suppression,...).\par}
+Dans le cadre de notre Cursus de Master 1 Informatique à l'Université de bordeaux, nous devons au compte de l'unité d'enseignement Projet de Programmation réaliser par groupe de cinq étudiants un projet de développement informatique. Nous travaillons avec Monsieur \textbf{Lionel CLEMENT} notre client et monsieur \textbf{Simon ARCHIPOFF} chargé de l'encadrement de nos travaux dirigés.
 
 
-\subsection{Description de l'existant et choix de conception}
-{Nous utiliserons le \textbf{LeFFF}, un fichier contenant une base très importante de mots de français implémentant la structure du \textbf{FFF}. 
-Ce fichier nous permettra d'avoir une base de mots, ainsi que d'avoir une structure rendant plus simple a implémenter les algorithmes de recherche
- du \textit{\bf lexique} en utilisant des \textit{transducteurs} et des \textit{unificateurs}.\par}
+{\textbf{Lionel CLEMENT}, spécialisé dans le domaine de la linguistique formelle et du traitement automatique des langues est un enseignant chercheur au Laboratoire Bordelais de Recherche en Informatique(\textbf{LABRI}). Il a réalisé avec \textbf{Benoit SAGOT} chercheur à l'Institut National de Recherche en Informatique et Automatique(\textbf{INRIA})  le Lexique électronique des formes fléchies du français, qu'ils ont appelé \textbf{LeFFF}.\par}
+{Le français est une langue, une langue peut-être définie comme un ensemble de signes oraux et écrits qui permettent à un groupe d'individus de communiquer. Les mots qui forment le français se repartissent en neuf classes: les noms, les déterminants, les adjectifs qualificatifs, les pronoms, les verbes, les adverbes,les prépositions, les conjonctions de coordination et les interjections. Partant de cette classification on peut dire que les formes fléchies d'un mot correspondent aux différentes déclinaisons de ce mot (sa conjugaison pour un verbe, son singulier et son pluriels pour certaines catégories de mots, ses synonymes,...
+Dans le \textbf{LAROUSSE}, un \textit{\bf lexique} est un dictionnaire spécialisé et généralement succinct concernant un domaine particulier de la connaissance, c'est une ressource complexe constituée de \textit{lexèmes}, de \textit{vocables}, de \textit{catégories} et \textit{sous-catégories syntaxiques}, de \textit{catégories grammaticales}, de \textit{règles de flexion}, de \textit{valence}, de \textit{phraséologie}, de \textit{fonctions lexicales},...\par}
+
+{Habituellement un dictionnaire est utilisé pour trouver la signification d'un mot qu'on connaît et il n'offre pas la possibilité de faire l'inverse, c'est à dire qu'à partir d'explications ou d'une liste de mots trouver le mot correspondant (un gain de temps considérable pour tous).\par}
+
+{L'objectif de ce projet est donc d'implémenter une application Web liée à une base de données(qui contiendra les mots du lexique) pour faciliter les interactions avec le lexique (consultation, ajout, suppression,...).\par}
+
+
+\subsection{Description de l'existant }
+{Le \textbf{LeFFF} est un fichier texte contenant une base de mots, mais il n'existe aucun outil qui en facilite l'accès et la compréhension encore moins sa modification ou son enrichissement. Le \textbf{LeFFF} actuel souffre d'un manque de traçabilité et n'offre aucune garantie pour contrôler les modifications. Nous utiliserons donc ce fichier contenant une base très importante de mots de français implémentant la structure du \textbf{FFF}. Ce fichier nous permettra d'avoir une base de mots, ainsi qu'une structure rendant plus simple a implémenter les algorithmes de recherche du \textit{\bf lexique} en utilisant des \textbf{transducteurs} et des \textbf{unificateurs}.\par}
+{Dans le \textbf{LeFFF}, il y a deux niveaux:\par}
+\begin{itemize}
+\item \textbf{Intensif} dont les entrées sont dans le format suivant:
+\small
+\begin{verbatim}
+afficheur	nc-eur	100;Lemma;nc;<Objde:(de-sinf|de-sn),Objà:(à-sinf)>;cat=nc;
+                    %default
+afficher	v-er:std	100;Lemma;v;<Suj:cln|sn,Obj:cla|sn>;cat=v;
+                        %actif,%passif,%ppp_employé_comme_adj
+\end{verbatim}
+\normalsize
+Ce niveau a une structure plus ou moins identique pour chaque catégorie grammaticale, et ne contient que le radical des mots, ces radicaux seront transformés pour donner toutes les formes du mot, donnant le prochain niveau.
+\item \textbf{Extensif} qui est donc la version compilée du niveau \textbf{intensif}, et donc qui contient tous les mots sous toutes leurs formes. Ce niveau est obtenu par l'application d'un transducteur pour chaque mot formant toutes ses formes selon sa catégorie.
+\end{itemize}
+{Nous utiliserons le \textbf{niveau intensif} car seul le radical importe pour le sens. Nous utiliserons des \textbf{transducteurs} afin de pouvoir générer le radical des mots recherchés, puis nous utiliserons un \textbf{unificateur} pour pouvoir lier les mots entre eux et pouvoir obtenir le sens de l'expression formée}
