@@ -35,8 +35,11 @@ La composition des \textbf{transducteurs} nous permettra de construire un \textb
 \subsubsection{Unificateur - Importance 5/5}{
 \textbf{L'unificateur} est l'algorithme qui va nous permettre de \textbf{lier} plusieurs \textbf{mots} afin d'en tirer le \textbf{sens}, pour ce faire, il faut faire \textbf{l'union des informations} sur ces mots. S'il y a une \textbf{contradiction} avec ces informations, alors la phrase est \textbf{mal formée} et dans ce cas aucun sens ne sera retourné, sinon on pourra voir quel est le sens de l'expression formée.\par}
 
-Exemple
-\newline
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{unificateur.png}
+    \caption{Unificateur }
+\end{figure}
 
 {Les mots utilisés sur \textbf{l'unificateur} utiliserons une \textbf{sous-structure commune} afin de faciliter et de rendre sensée cette opération, puis à l'aide de la \textbf{théorie de substitution des ensembles}, nous pourrons \textbf{optimiser} la construction de nos formules. Celles-ci nous permettrons par la suite d'\textbf{améliorer} la \textbf{rapidité} de l'algorithme de recherche, ainsi que la \textbf{mémoire} utilisée.\par}
 
@@ -96,5 +99,5 @@ Nous sommes dans l'obligation de manipuler la \textbf{gestion de la mémoire} d'
 L’ergonomie touche à la \textbf{qualité} et au \textbf{confort d’utilisation} de la navigation web, dans notre cas le client nous a donné une liberté dans le choix de l'agencement de la page, la police, les couleurs, le design. 
 
 \subsection{Compléxité}
-Lors de la recherche d'un mot dans la base de données , l'algorithme de recherche devra parcourir tous les mots du \textbf{LeFFF}. En effet, le fait de parcourir tout le fichier \textbf{LeFFF} , rendra la recherche d'un mot ou d'une expression coûteux en temps , il faudra donc éviter d'utiliser  un algorithme qui aura une compléxité exponentielle. (la non maitrise du temps d'attente)Du fait d'un temps d'attente non maîtrisé et qui risque de rendre l'utilisation du site web peu ergonomique. Afin de répondre à cette problématique, privilégier un parcours en profondeur qui aura une compléxité linaire.
+Lors de la recherche d'un mot dans la base de données , l'algorithme de recherche devra parcourir tous les mots du \textbf{LeFFF}. En effet, le fait de parcourir tout le fichier \textbf{LeFFF} , rendra la recherche d'un mot ou d'une expression coûteux en temps , il faudra donc \textbf{éviter} d'utiliser  un algorithme qui aura une \textbf{compléxité exponentielle}. Du fait d'un temps d'attente non maîtrisé et qui risque de rendre l'utilisation du site web peu plaisant. Afin de répondre à cette problématique, privilégier un parcours en profondeur qui aura une \textbf{compléxité linaire}.
 La complexité sera une grande partie dans la réalisation du projet.
