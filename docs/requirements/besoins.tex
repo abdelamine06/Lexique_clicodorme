@@ -15,7 +15,7 @@ Mettre en place une base de données qui utilise le niveau intensif du \textbf{L
 \end{figure}
 \newpage
 
-\subsubsection{Transducteur- Importance 5}
+\subsubsection{Transducteur - Importance 5}
 
 
 La composition des \textbf{transducteurs} nous permettra de construire un \textbf{lexique} spécifique à la nature de l'entrée, nous pouvons réaliser des \textbf{transducteurs} par exemple qui vont \textbf{conjuguer} des verbes, d'autres qui vont \textbf{transformer} du masculin ou féminin, du singulier ou pluriel, ou \textbf{inversement}. Les algorithmes de construction des transducteurs pourront prendre en compte des \textbf{filtres} afin d'affiner la recherche et la rendre plus rapide.Chaque \textbf{arcs} correspondra à une \textbf{spécification} du mot (symboles signifiant la nature et la morphologie d'un mot).
@@ -32,8 +32,13 @@ La composition des \textbf{transducteurs} nous permettra de construire un \textb
     \caption{transducteur }
 \end{figure}
 
-\subsubsection{Unificateur}{
-Concernant \textbf{l'unificateur}, on peut dire que c'est l'opération de \textbf{fusionner} plusieurs \textbf{transducteurs} ayant probablement une \textbf{sous structure commune}, à l'aide de la \textbf{théorie de substitution} des ensembles (Ex: soit A et B deux ensembles, SI A est inclut dans B on peut substituer A par B).Cela permet \textbf{d'optimiser} la construction de nos formules(Si deux formules ont des parties communes, nous gardons seulement la plus générale) ainsi qu'une \textbf{amélioration} du temps de réponse pour l'algorithme de recherche.Pour finir, cette opération permet d'optimiser la mémoire utilisée.}
+\subsubsection{Unificateur - Importance 5}{
+\textbf{L'unificateur} est l'algorithme qui va nous permettre de \textbf{lier} plusieurs \textbf{mots} afin d'en tirer le \textbf{sens}, pour ce faire, il faut faire \textbf{l'union des informations} sur ces mots. S'il y a une \textbf{contradiction} avec ces informations, alors la phrase est \textbf{mal formée} et dans ce cas aucun sens ne sera retourné, sinon on pourra voir quel est le sens de l'expression formée.\par}
+
+Exemple
+\newline
+
+{Les mots utilisés sur \textbf{l'unificateur} utiliserons une \textbf{sous-structure commune} afin de faciliter et de rendre sensée cette opération, puis à l'aide de la \textbf{théorie de substitution des ensembles}, nous pourrons \textbf{optimiser} la construction de nos formules. Celles-ci nous permettrons par la suite d'\textbf{améliorer} la \textbf{rapidité} de l'algorithme de recherche, ainsi que la \textbf{mémoire} utilisée.\par}
 
 \subsection{Partie Web}
 Le développement d'une \textbf{application Web} permettant aux utilisateurs de facilement interagir avec le \textbf{lexique}.
