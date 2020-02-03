@@ -4,7 +4,7 @@ Lors de nos différents échanges avec le client nous avons pu identifier ses be
 \subsection{Partie Langue}
 Mettre en place une base de données qui utilise le niveau intensif du \textbf{LeFFF} pour former les différents mots du \textbf{lexique}.
 
-\subsubsection{Rechercher un lexique - Importance 5}
+\subsubsection{Rechercher un lexique - Importance 5/5}
 
 {Nous offrirons la possibilité de rechercher un \textbf{lexique} de la même manière qu'un dictionnaire, mais aussi en permettant de le chercher en fonction de son \textbf{lemme} et \textbf{lexème} (sa définition ou synonyme). Par exemple l'entrée en recherche "content", nous pourrons retrouver en sortie "content", "heureux", "être à la fête", "être aux anges", "être gai comme un pinson",... Par la suite, nous pourrons afficher toutes les formes possibles pour chacun des résultats retournés comme par exemple singulier, pluriel, ou temps conjugués pour les verbes. Un exemple de test réalisable serait de rechercher un mot et de refaire une recherche avec l'un des résultats obtenus pour comparer les deux recherches.\par}
 
@@ -15,7 +15,7 @@ Mettre en place une base de données qui utilise le niveau intensif du \textbf{L
 \end{figure}
 \newpage
 
-\subsubsection{Transducteur - Importance 5}
+\subsubsection{Transducteur - Importance 5/5}
 
 
 La composition des \textbf{transducteurs} nous permettra de construire un \textbf{lexique} spécifique à la nature de l'entrée, nous pouvons réaliser des \textbf{transducteurs} par exemple qui vont \textbf{conjuguer} des verbes, d'autres qui vont \textbf{transformer} du masculin ou féminin, du singulier ou pluriel, ou \textbf{inversement}. Les algorithmes de construction des transducteurs pourront prendre en compte des \textbf{filtres} afin d'affiner la recherche et la rendre plus rapide.Chaque \textbf{arcs} correspondra à une \textbf{spécification} du mot (symboles signifiant la nature et la morphologie d'un mot).
@@ -32,7 +32,7 @@ La composition des \textbf{transducteurs} nous permettra de construire un \textb
     \caption{transducteur }
 \end{figure}
 
-\subsubsection{Unificateur - Importance 5}{
+\subsubsection{Unificateur - Importance 5/5}{
 \textbf{L'unificateur} est l'algorithme qui va nous permettre de \textbf{lier} plusieurs \textbf{mots} afin d'en tirer le \textbf{sens}, pour ce faire, il faut faire \textbf{l'union des informations} sur ces mots. S'il y a une \textbf{contradiction} avec ces informations, alors la phrase est \textbf{mal formée} et dans ce cas aucun sens ne sera retourné, sinon on pourra voir quel est le sens de l'expression formée.\par}
 
 Exemple
@@ -43,18 +43,18 @@ Exemple
 \subsection{Partie Web}
 Le développement d'une \textbf{application Web} permettant aux utilisateurs de facilement interagir avec le \textbf{lexique}.
 
-\subsubsection{Ajouter un mot au lexique - Importance 4}
+\subsubsection{Ajouter un mot au lexique - Importance 4/5}
 
 {Nous offrirons la possibilité d'ajouter un mot au \textbf{lexique} en rentrant les données de la structure du \textbf{FFF} pour celui-ci, c'est à dire que nous devrons entrer des informations sur ce que l'on veut rajouter comme son sens, est-ce un verbe, un nom, un adjectif,..., singulier, pluriel,..., pour pouvoir ensuite être reconnu par l'algorithme de recherche demandé ci-dessus. Un exemple de test réalisable serait de voir si on trouve bien les éléments rajoutés avec la recherche de lexique.\par}
 
-\subsubsection{Supprimer un mot du lexique - Importance 1}
+\subsubsection{Supprimer un mot du lexique - Importance 1/5}
 {Nous offrirons la possibilité de supprimer un mot ou expression du \textbf{lexique}, affin de les enlever de toute la base de données utilisée, et donc de faire en sorte à ce que l'algorithme de recherche ne le trouve plus. Cette fonction ne sera normalement que très peu utilisée. Un exemple de test réalisable serait de faire une recherche et par la suite de supprimer un des résultats, pour enfin réitérer la recherche sur tous les résultats pour vérifier que l'élément supprimé est bien supprimé.\par}
 
-\subsubsection{Modifier un mot - Importance 4}
+\subsubsection{Modifier un mot - Importance 4/5}
  
 {Nous offrirons la possibilité de modifier un mot du \textbf{lexique} en modifiant un ou plusieurs champs de la structure du \textbf{FFF} de ce mot. Cette fonction permettra entre autre de corriger des erreurs d'ajout dans le lexique comme par exemple faute d'orthographe, mauvaise catégorisation,... Il sera possible de tester cette fonctionnalité en recherchant l'élément modifié directement et de constater ses changements (toutes les possibilités de changement seront donc a tester).\par} L'algorithme d'unification doit prendre en compte la nouvelle modification afin de mettre à jour le lexique d'une manière automatique.
  
-\subsubsection{Gérer les rôles - Importance 2}
+\subsubsection{Gérer les rôles - Importance 2/5}
     
     Nous mettrons en place un système à trois \textbf{types d'utilisateurs}:
     \begin{itemize}
@@ -66,14 +66,14 @@ Le développement d'une \textbf{application Web} permettant aux utilisateurs de 
     
     \begin{figure}[ht]
         \centering
-        \includegraphics[scale=0.3]{uml.png}
+        \includegraphics[scale=0.3]{role.png}
         \caption{Gestion des rôles des utilisateurs }
     \end{figure}
     \newpage
     
 
  
-\subsubsection{Exporter le LeFFF - Importance 3}
+\subsubsection{Exporter le LeFFF - Importance 3/5}
 
 {Nous offrirons la possibilité d'exporter le \textbf{lexique} sélectionné avec un \textbf{filtre} afin que l'utilisateur puisse le \textbf{télécharger} au format \textbf{xml}, nous pourrons utiliser plusieurs types de filtres comme une catégorie de mot ou expression (verbe, nom, adjectif,..., singulier, pluriel,...) ou par une recherche de l'algorithme de recherche mentionné plus haut. Il sera possible de tester cette fonction en exportant sans filtre le \textbf{LeFFF} sans filtre et par la suite vérifier que le \textbf{LeFFF} téléchargé est bien entier et au bon format.\par}
 
