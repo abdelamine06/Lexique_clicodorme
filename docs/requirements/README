@@ -1,0 +1,4 @@
+Pour compiler le cahier des besoins, il faut :
+	-> pdflatex cahier_des_besoins.tex
+	-> bibtex cahier_des_besoins.aux
+	-> pdflatex cahier_des_besoins.tex
