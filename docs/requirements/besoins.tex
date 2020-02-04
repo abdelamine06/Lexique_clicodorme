@@ -64,12 +64,12 @@ Le développement d'une \textbf{application Web} permettant aux utilisateurs de 
 
 {{Nous offrirons la possibilité d'ajouter un mot au \textbf{lexique} en rentrant les données de la structure du \textbf{FFF}. Seules les \textbf{radicaux} des mots seront a rajouter, les différentes formes seront automatiquement générées par les transducteurs. Pour ajouter un mot, nous devrons entrer des informations sur celui-ci comme son sens et sa catégorie grammaticale, pour pouvoir ensuite être reconnu par l'algorithme de recherche demandé ci-dessus. Un exemple de test réalisable serait de voir si on trouve bien les éléments rajoutés avec la recherche de lexique.\par}
 
-\subsubsection{Supprimer un mot du lexique - Importance 1/5}
-{Nous offrirons la possibilité de supprimer un mot du \textbf{lexique}, affin de les enlever de toute la base de données utilisée, et donc de faire en sorte à ce que l'algorithme de recherche ne le trouve plus. Cette fonction ne sera normalement que très peu utilisée. Un exemple de test réalisable serait de faire une recherche et par la suite de supprimer un des résultats, pour enfin réitérer la recherche sur tous les résultats pour vérifier que l'élément supprimé est bien supprimé.\par}
-
 \subsubsection{Modifier un mot - Importance 4/5}
  
 {Nous offrirons la possibilité de modifier un mot du \textbf{lexique} en modifiant un ou plusieurs champs de la structure du \textbf{FFF} de ce mot. Cette fonction permettra entre autre de corriger des erreurs d'ajout dans le lexique comme par exemple faute d'orthographe, mauvaise catégorisation,... Il sera possible de tester cette fonctionnalité en recherchant l'élément modifié directement et de constater ses changements (toutes les possibilités de changement seront donc a tester).\par} L'algorithme d'unification doit prendre en compte la nouvelle modification afin de mettre à jour le lexique d'une manière automatique.
+ 
+\subsubsection{Supprimer un mot du lexique - Importance 1/5}
+{Nous offrirons la possibilité de supprimer un mot du \textbf{lexique}, afin de les enlever de toute la base de données utilisée, et donc de faire en sorte à ce que l'algorithme de recherche ne le trouve plus. Cette fonction ne sera normalement que très peu utilisée car l'ajout et la modification du lexique est contrôlée par une gestion des rôles, rendant cette fonctionnalité peu utile. Un exemple de test réalisable serait de faire une recherche et par la suite de supprimer un des résultats, pour enfin réitérer la recherche sur tous les résultats pour vérifier que l'élément supprimé est bien supprimé.\par}
  
 \subsubsection{Gérer les rôles - Importance 2/5}
     
