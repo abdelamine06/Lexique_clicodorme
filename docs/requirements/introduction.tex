@@ -17,8 +17,9 @@ Dans le \textbf{LAROUSSE}, un \textit{\bf lexique} est un dictionnaire spéciali
 
 
 \subsection{Description de l'existant }
-{}
-{Le \textbf{LeFFF} est un fichier texte contenant une base de mots, mais il n'existe aucun outil qui en facilite l'accès et la compréhension encore moins sa modification ou son enrichissement. Le \textbf{LeFFF} actuel souffre d'un manque de traçabilité et n'offre aucune garantie pour contrôler les modifications. Nous utiliserons donc ce fichier contenant une base très importante de mots de français implémentant la structure du \textbf{FFF}. Ce fichier nous permettra d'avoir une base de mots, ainsi qu'une structure rendant plus simple a implémenter les algorithmes de recherche du \textit{\bf lexique} en utilisant des \textbf{transducteurs} et des \textbf{unificateurs}.\par}
+
+\subsubsection{Le lexique: leFFF}
+{Le \textbf{LeFFF} est un fichier texte contenant une base de mots, mais il n'existe aucun outil qui en facilite l'accès et la compréhension encore moins sa modification ou son enrichissement. Le \textbf{LeFFF} actuel souffre d'un manque de traçabilité et n'offre aucune garantie pour contrôler les modifications. Nous utiliserons donc ce fichier contenant une base très importante de mots de français implémentant la structure du \textbf{FFF}. Ce fichier nous permettra d'avoir une base de mots, ainsi qu'une structure rendant plus simple à implémenter les algorithmes de recherche du \textit{\bf lexique} en utilisant des \textbf{transducteurs} et des \textbf{unificateurs}.\par}
 {Dans le \textbf{LeFFF}, il y a deux formats:\par}
 \begin{itemize}
 \item \textbf{le format Intensif} dont les entrées sont dans le format suivant:
@@ -30,7 +31,51 @@ afficher	v-er:std	100;Lemma;v;<Suj:cln|sn,Obj:cla|sn>;cat=v;
                     %actif,%passif,%ppp_employé_comme_adj
 \end{verbatim}
 \normalsize
-Ce niveau a une structure plus ou moins identique pour chaque catégorie grammaticale, et ne contient que le radical des mots, ces radicaux seront transformés pour donner toutes les formes du mot, donnant le format suivant.
-\item \textbf{le format Extensif} qui est donc la version compilée du niveau \textbf{intensif}, et donc qui contient tous les mots sous toutes leurs formes. Ce niveau est obtenu par l'application d'un transducteur pour chaque mot formant toutes ses formes selon sa catégorie.
+Ce format a une structure plus ou moins identique pour chaque catégorie grammaticale, et ne contient que le radical des mots, ces radicaux seront transformés pour donner toutes les formes du mot, donnant le second format.
+\item \textbf{le format Extensif} qui est donc la version compilée du format \textbf{intensif}, contient donc tous les mots sous toutes leurs formes. Ce format est obtenu par l'application d'un transducteur pour chaque mot formant toutes ses formes selon sa catégorie.
 \end{itemize}
-{Nous utiliserons le \textbf{niveau intensif} car seul le radical importe pour le sens. Nous utiliserons des \textbf{transducteurs} afin de pouvoir générer le radical des mots recherchés, puis nous utiliserons un \textbf{unificateur} pour pouvoir lier les mots entre eux et pouvoir obtenir le sens de l'expression formée}
+{Nous utiliserons le \textbf{format intensif} car seul le radical importe pour le sens. Nous utiliserons des \textbf{transducteurs} afin de pouvoir générer le radical des mots recherchés, puis nous utiliserons un \textbf{unificateur} pour pouvoir lier les mots entre eux et pouvoir obtenir le sens de l'expression formée}
+
+\subsubsection{Le formalisme PFM}
+Dans la documentation \cite{Formalisme} de \textbf{Olivier Bonami} et \textbf{Gilles Boyé}, le formalisme Paradigm Function Morphology(\textbf{PFM})  est une théorie explicite de la morphologie flexionnelle qui présente une conclusion à partir d'un fait, d'une situation. Les affixes ne sont pas traités comme des signes, mais comme des résultats de l'application d'une règle liant les caractéristiques morphosyntaxiques à une fonction phonologique qui modifie une base.
+Dans le formalisme PFM, le système flexionnel d'un langage est modélisé par une fonction de paradigme.
+Les fonctions de paradigme prennent en entrée une racine et un ensemble de fonctions, et retournent un ensemble phonologique.
+
+La forme générique des fonctions paragigmes est : \textbf{PF(l, $\sigma$) = IV o III o II o I (l,$\sigma$)($\epsilon$)}
+\begin{itemize}
+    \item l : lemme auquel on souhaite appliquer le formalisme
+    \item $\sigma$ : série de tags que l'on souhaite appliquer au lemme
+    \item I, II, III, IV : Niveaux d'applications des règles
+\end{itemize}
+
+\smallbreak
+
+De manière plus formelle, le formalisme indique pour un lemme donné avec une série de tags, une règle pour chaque niveau d'application. Pour chaque niveau, uniquement la règle correspondant  aux tags renseignés va être appliqué au lemme.\\
+Si pour un niveau d'application donné, aucune règle ne correspond, le formalisme passe au niveau d'application suivant. \\
+Si pour un niveau d'application, plusieurs règles correspondent, celle qui s'applique sera celle qui comporte le plus de tags (la règle la plus spécifique donc la plus forte).
+Le \textbf{format} de base des \textbf{règles} est le suivant : \textbf{n, X, t $\Longrightarrow$ f(X) } \\
+\begin{itemize}
+    \item \textbf{n} : niveau d’application de la règle
+    \item \textbf{X} : lemme
+    \item \textbf{t} : combinaison de tags pour laquelle la règle s'applique (Tous les tags doivent être renseignés par l'appel du formalisme pour que la règle puisse s'appliquer
+    \item \textbf{f(X)} : la forme flexionnelle
+\end{itemize}
+
+Prenons un \textbf{exemple} concret du formalisme PFM avec les règles suivantes : \\
+\begin{itemize}
+    \item I, chaîne,{f} $\Longrightarrow$ chaîne + "ne"
+    \item II, chaîne, {p} $\Longrightarrow$ chaîne + "s"
+\end{itemize}
+
+
+On applique le formalisme sur le lemme "Mien" pour en obténir le féminin pluriel : \\
+PF(Sien, {f,p} ) = IV o III o II o I (Sien, {f,p} )(\textbf{$\epsilon$}) \textit{Application de la règle I} \\
+                 = IV o III o II (Mien, {f,p} )(\textbf{Mienne}) \textit{Application de la règle II} \\
+                 = IV o III (Mien, {f,p} )(\textbf{Miennes}) \textit{Aucune règle à appliquer} \\
+                 = IV (Mien, {f,p} )(\textbf{Miennes}) \textit{Aucune règle à appliquer} \\
+                 =\textbf{ Miennes }
+
+Dans cet exemple, on souhaite appliquer le féminin et le pluriel au lemme "Mien".
+La syntaxe montre l'application des règles de niveau 1 avant l'application des règles de niveau 2.
+Cette \textbf{hiérarchie} des niveaux d'application est nécessaire pour \textbf{éviter les incohérences}. Ce système garantie que le résultat sera "Miennes" et non "Miensne". \\
+D'autres exemples sont disponible dans la documentation de Olivier Bonami \cite{PFM}.
