@@ -6,9 +6,6 @@ from django.views.generic import View
 from main.models import *
 import regex
 
-def home(request):
-    return render(request,"main/home.html",locals())
-
 def dictionnaire(mot):
     dict={}
     patternSimple='[^=,\[\]]+=[^,\[\]]+'
@@ -21,22 +18,45 @@ def dictionnaire(mot):
     tmp=regex.findall(patternSimple,tmp)
     if tmp!=[]:
         infos+=tmp
-    print(infos)
     for info in infos:
-        print(info)
         index=info.find('=')
         if '[' in info:
-            print('ok')
             dict[info[0:index]]=dictionnaire(info[index+2:len(info)-1])
         else:
             dict[info[0:index]]=info[index+1:]
     return dict
+
+def unification(dict1,dict2):
+    res=dict1
+    print(dict1)
+    print(dict2)
+    for cle,val in dict2.items():
+        if cle in dict1:
+            print(cle,val,dict1[cle])
+            if dict1[cle]!=val:
+                return {}
+        else:
+            res[cle]=val
+    return res
+
+def home(request):
+    return render(request,"main/home.html",locals())
 
 def tmp(request):
     return redirect('/recherche/'+request.GET.get("recherche"))
 
 def recherche(request,recherche):
     mot=Mot.objects.get(Mot=recherche)
-    infos=dictionnaire(mot.Infos)
-    print(infos)
-    return redirect('../')
+    res=Mot.objects.all()
+    affiche=[]
+    dict={}
+    dict['lemme2']='fruit'
+    for r in res:
+        test=unification(dictionnaire(r.Infos),dict)
+        print(test)
+        print(r.Mot)
+        if test!={}:
+            affiche+=[r]
+    for aff in affiche:
+        print(aff.Mot)
+    return render(request,"main/recherche.html",locals())
