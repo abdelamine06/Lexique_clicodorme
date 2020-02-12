@@ -20,4 +20,6 @@ from main import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home),
+    path('recherche',views.tmp),
+    path('recherche/<str:recherche>',views.recherche),
 ]
