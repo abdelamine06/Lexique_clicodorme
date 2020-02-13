@@ -20,10 +20,3 @@ class Mot(models.Model):
     Mot = models.CharField(max_length=50, null=False)
     Table = models.IntegerField(null=False)
     Infos = models.TextField(max_length=250,null=False)
-
-class Utilisateur(models.Model):
-    UtilID = models.AutoField(null=False, primary_key=True)
-    Nom = models.CharField(max_length=50, null=False)
-    Prenom = models.CharField(max_length=50, null=False)
-    MdP = models.CharField(max_length=50, null=False)
-    Droit = models.IntegerField(default=0)

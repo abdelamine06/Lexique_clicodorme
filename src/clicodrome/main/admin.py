@@ -22,23 +22,6 @@ class MotAdmin(admin.ModelAdmin):
     ordering = ('Mot','Table')
     search_fields = ('Mot','Table','Infos')
 
-class UtilisateurAdmin(admin.ModelAdmin):
-    model = Utilisateur
-    list_display = ('Nom','Prenom','get_Droit')
-    list_filter = ('Nom','Prenom')
-    ordering = ('Nom','Prenom','Droit')
-    search_fields = ('Nom','Prenom')
-
-    def get_Droit(self,obj):
-        switcher={
-            0:"Utilisateur",
-            1:"Contributeur",
-            2:"Administrateur"
-        }
-        return switcher.get(obj.Droit)
-    get_Droit.short_description='Droit'
-
 admin.site.register(FormeMot,FormeMotAdmin)
 admin.site.register(TableTransformation,TableTransformationAdmin)
 admin.site.register(Mot,MotAdmin)
-admin.site.register(Utilisateur,UtilisateurAdmin)

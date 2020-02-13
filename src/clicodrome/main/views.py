@@ -53,10 +53,21 @@ def transforme(mot,transformation):
     infos=unification(dictionnaire(mot.Infos),dictionnaire(transformation.Infos))
     if infos!={}:
         formeMot=FormeMot(Mot=formeMot,Infos=saveDictionnaire(infos))
-    print(saveDictionnaire(infos))
     return formeMot
 
+def transformeTous():
+    formesMots=FormeMot.objects.all()
+    for formeMot in formesMots:
+        formeMot.delete()
+    mots=Mot.objects.all()
+    for mot in mots:
+        transformations=TableTransformation.objects.filter(NumTab=mot.Table)
+        for transformation in transformations:
+            formeMot=transforme(mot,transformation)
+            formeMot.save()
+
 def home(request):
+    transformeTous()
     return render(request,"main/home.html",locals())
 
 def tmp(request):
@@ -64,11 +75,13 @@ def tmp(request):
 
 def recherche(request,recherche):
     mot=Mot.objects.get(Mot=recherche)
+    if mot==None:
+        mot=FormeMot.objects.get(Mot=recherche)
     res=Mot.objects.all()
-    transformations=TableTransformation.objects.filter(NumTab=2)
-    affiche=[]
     dict={}
-    dict['lemme']=dictionnaire(mot.Infos)['lemme']
+    dict['lemme3']=dictionnaire(mot.Infos)['lemme3']
+    transformations=TableTransformation.objects.filter(NumTab=mot.Table)
+    affiche=[]
     for r in res:
         test=unification(dictionnaire(r.Infos),dict)
         if test!={}:
