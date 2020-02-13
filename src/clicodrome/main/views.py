@@ -26,18 +26,35 @@ def dictionnaire(mot):
             dict[info[0:index]]=info[index+1:]
     return dict
 
+def saveDictionnaire(dict):
+    res=str(dict)
+    res=res[1:len(res)-1]
+    res=res.replace('{','[')
+    res=res.replace('}',']')
+    res=res.replace(':','=')
+    return res
+
 def unification(dict1,dict2):
     res=dict1
-    print(dict1)
-    print(dict2)
     for cle,val in dict2.items():
         if cle in dict1:
-            print(cle,val,dict1[cle])
             if dict1[cle]!=val:
                 return {}
         else:
             res[cle]=val
     return res
+
+def transforme(mot,transformation):
+    print(transformation.Terminaison)
+    terminaisonIndex=mot.Mot.rfind(transformation.Terminaison)
+    if transformation.Terminaison=='':
+        terminaisonIndex+=1
+    formeMot=mot.Mot[:terminaisonIndex+1]+transformation.Transformation
+    infos=unification(dictionnaire(mot.Infos),dictionnaire(transformation.Infos))
+    if infos!={}:
+        formeMot=FormeMot(Mot=formeMot,Infos=saveDictionnaire(infos))
+    print(saveDictionnaire(infos))
+    return formeMot
 
 def home(request):
     return render(request,"main/home.html",locals())
@@ -48,15 +65,15 @@ def tmp(request):
 def recherche(request,recherche):
     mot=Mot.objects.get(Mot=recherche)
     res=Mot.objects.all()
+    transformations=TableTransformation.objects.filter(NumTab=2)
     affiche=[]
     dict={}
-    dict['lemme2']='fruit'
+    dict['lemme']=dictionnaire(mot.Infos)['lemme']
     for r in res:
         test=unification(dictionnaire(r.Infos),dict)
-        print(test)
-        print(r.Mot)
         if test!={}:
             affiche+=[r]
     for aff in affiche:
-        print(aff.Mot)
+        for transformation in transformations:
+            print(aff.Mot,'->',transforme(aff,transformation).Mot)
     return render(request,"main/recherche.html",locals())
