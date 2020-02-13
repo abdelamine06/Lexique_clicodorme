@@ -20,12 +20,12 @@ def recherche(request,recherche):
         mot=FormeMot.objects.get(Mot=recherche)
     res=Mot.objects.all()
     print(mot.Mot,mot.Infos)
-    print(dictionnaire(mot.Infos))
+    print(DictToStr(mot.Infos))
     dict={}
-    dict['lemme2']=dictionnaire(mot.Infos)['lemme2']
+    dict['lemme2']=DictToStr(mot.Infos)['lemme2']
     affiche=[]
     for r in res:
-        test=unification(dictionnaire(r.Infos),dict)
+        test=unification(DictToStr(r.Infos),dict)
         if test!={}:
             affiche+=[r]
     return render(request,"main/recherche.html",locals())
