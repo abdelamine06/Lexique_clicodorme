@@ -1,10 +1,10 @@
 from main.models import *
 import regex
 
-def dictionnaire(mot):
+def strToDict(mot):
     dict={}
-    patternSimple='[^=,\[\]]+=[^,\[\]]+'
-    patternComplexe='[^=,\[\]]+=\[((?:[^\[\]]*|(?R))*)\]'
+    patternSimple='[^=,\ \[\]]+=[^,\[\]]+'
+    patternComplexe='[^=,\ \[\]]+=\[((?:[^\[\]]*|(?R))*)\]'
     infos=[]
     tmp=regex.search(patternComplexe,mot)
     if tmp!=None:
@@ -16,17 +16,18 @@ def dictionnaire(mot):
     for info in infos:
         index=info.find('=')
         if '[' in info:
-            dict[info[0:index]]=dictionnaire(info[index+2:len(info)-1])
+            dict[info[0:index]]=strToDict(info[index+2:len(info)-1])
         else:
             dict[info[0:index]]=info[index+1:]
     return dict
 
-def saveDictionnaire(dict):
+def DictToStr(dict):
     res=str(dict)
     res=res[1:len(res)-1]
     res=res.replace('{','[')
     res=res.replace('}',']')
-    res=res.replace(':','=')
+    res=res.replace(': ','=')
+    res=res.replace('\'','')
     return res
 
 def unification(dict1,dict2):
@@ -44,9 +45,9 @@ def transforme(mot,transformation):
     if transformation.Terminaison=='':
         terminaisonIndex+=1
     formeMot=mot.Mot[:terminaisonIndex+1]+transformation.Transformation
-    infos=unification(dictionnaire(mot.Infos),dictionnaire(transformation.Infos))
+    infos=unification(strToDict(mot.Infos),strToDict(transformation.Infos))
     if infos!={}:
-        formeMot=FormeMot(Mot=formeMot,Infos=saveDictionnaire(infos))
+        formeMot=FormeMot(Mot=formeMot,Infos=DictToStr(infos))
     return formeMot
 
 def transformeTous():

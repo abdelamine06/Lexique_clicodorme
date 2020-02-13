@@ -14,20 +14,18 @@ def tmp(request):
     return redirect('/recherche/'+request.GET.get("recherche"))
 
 def recherche(request,recherche):
-    mot=Mot.objects.get(Mot=recherche)
-    print(mot)
-    if mot==None:
+    try:
+        mot=Mot.objects.get(Mot=recherche)
+    except Mot.DoesNotExist:
         mot=FormeMot.objects.get(Mot=recherche)
     res=Mot.objects.all()
+    print(mot.Mot,mot.Infos)
+    print(dictionnaire(mot.Infos))
     dict={}
     dict['lemme2']=dictionnaire(mot.Infos)['lemme2']
-    transformations=TableTransformation.objects.filter(NumTab=mot.Table)
     affiche=[]
     for r in res:
         test=unification(dictionnaire(r.Infos),dict)
         if test!={}:
             affiche+=[r]
-    for aff in affiche:
-        for transformation in transformations:
-            print(aff.Mot,'->',transforme(aff,transformation).Mot)
     return render(request,"main/recherche.html",locals())
