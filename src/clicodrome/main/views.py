@@ -53,4 +53,7 @@ def importFichier(request):
     importMots("export.txt")
     return redirect('/')
 
+def mot_list(request):
+    context = {'mot_list': Mot.objects.all()}
+    return render(request, "main/list_mot.html", context)
 
