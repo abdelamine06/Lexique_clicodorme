@@ -5,8 +5,26 @@
 </head>
 
 <body>
-  {%for res in affiche %}
-  {{res.Mot}}<br>
+  {% for res in affiche %}
+  {{res.0.Mot}}
+  <input type='checkbox' onclick='setVisible(this)'>
+  <div onclick="show" style="display:none;">
+  {% for formes in res.1 %}
+  {{formes.Mot}}<br>
   {% endfor %}
+  </div>
+  <br>
+  {% endfor %}
+  <script>
+
+    function setVisible(val){
+      if(val.checked == true){
+          val.nextElementSibling.style.display = 'block';
+      }else{
+          val.nextElementSibling.style.display = 'none';
+      }
+    }
+    
+  </script>
 </body>
 </html>

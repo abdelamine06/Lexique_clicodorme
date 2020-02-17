@@ -19,13 +19,15 @@ def recherche(request,recherche):
     except Mot.DoesNotExist:
         mot=FormeMot.objects.get(Mot=recherche)
     res=Mot.objects.all()
-    print(mot.Mot,mot.Infos)
-    print(DictToStr(mot.Infos))
     dict={}
-    dict['lemme2']=DictToStr(mot.Infos)['lemme2']
+    dict['lemme2']=strToDict(mot.Infos)['lemme2']
     affiche=[]
     for r in res:
-        test=unification(DictToStr(r.Infos),dict)
+        test=unification(strToDict(r.Infos),dict)
         if test!={}:
-            affiche+=[r]
+            transformations=TableTransformation.objects.filter(NumTab=r.Table)
+            formes=[]
+            for transformation in transformations:
+                formes+=[transforme(r,transformation)]
+            affiche+=[[r]+[formes]]
     return render(request,"main/recherche.html",locals())
