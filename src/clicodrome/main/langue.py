@@ -46,6 +46,7 @@ def transforme(mot,transformation):
         terminaisonIndex+=1
     formeMot=mot.Mot[:terminaisonIndex+1]+transformation.Transformation
     infos=unification(strToDict(mot.Infos),strToDict(transformation.Infos))
+    formeMot=None
     if infos!={}:
         formeMot=FormeMot(Mot=formeMot,Infos=DictToStr(infos))
     return formeMot
@@ -60,3 +61,4 @@ def transformeTous():
         for transformation in transformations:
             formeMot=transforme(mot,transformation)
             formeMot.save()
+    return
