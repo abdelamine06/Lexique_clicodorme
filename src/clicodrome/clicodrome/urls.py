@@ -22,4 +22,7 @@ urlpatterns = [
     path('',views.home),
     path('recherche',views.tmp),
     path('recherche/<str:recherche>',views.recherche),
+    path('exportResultat',views.exportResultat),
+    path('export',views.exportFichier),
+    path('import',views.importFichier),
 ]

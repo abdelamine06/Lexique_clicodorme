@@ -15,6 +15,9 @@
   </div>
   <br>
   {% endfor %}
+  <form action="/exportResultat" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Exporter">
   <script>
 
     function setVisible(val){
@@ -24,7 +27,7 @@
           val.nextElementSibling.style.display = 'none';
       }
     }
-    
+
   </script>
 </body>
 </html>

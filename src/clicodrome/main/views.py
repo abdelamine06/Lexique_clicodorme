@@ -5,6 +5,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import View
 from main.models import *
 from main.langue import *
+from main.export import *
 
 def home(request):
     transformeTous()
@@ -22,6 +23,7 @@ def recherche(request,recherche):
     dict={}
     dict['lemme2']=strToDict(mot.Infos)['lemme2']
     affiche=[]
+    resultat=[]
     for r in res:
         test=unification(strToDict(r.Infos),dict)
         if test!={}:
@@ -30,4 +32,22 @@ def recherche(request,recherche):
             for transformation in transformations:
                 formes+=[transforme(r,transformation)]
             affiche+=[[r]+[formes]]
+            resultat+=[r.Mot]
+    request.session['resultat']=resultat
     return render(request,"main/recherche.html",locals())
+
+def exportResultat(request):
+    resultats=request.session['resultat']
+    mots=[]
+    for resultat in resultats:
+        mots+=[Mot.objects.get(Mot=resultat)]
+    exportMots(mots)
+    return redirect('/')
+
+def exportFichier(request):
+    exportTousMots()
+    return redirect('/')
+
+def importFichier(request):
+    importMots("export.txt")
+    return redirect('/')
