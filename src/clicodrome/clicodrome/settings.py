@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db_clicodrome',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'amine@2020',
         'HOST': 'localhost',
         'PORT': '3306',
     }

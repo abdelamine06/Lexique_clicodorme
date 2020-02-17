@@ -6,6 +6,7 @@ from django.views.generic import View
 from main.models import *
 from main.langue import *
 from main.export import *
+from django.views.generic.edit import  UpdateView
 
 def home(request):
     transformeTous()
@@ -51,3 +52,5 @@ def exportFichier(request):
 def importFichier(request):
     importMots("export.txt")
     return redirect('/')
+
+

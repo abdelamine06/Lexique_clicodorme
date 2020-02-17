@@ -25,4 +25,5 @@ urlpatterns = [
     path('exportResultat',views.exportResultat),
     path('export',views.exportFichier),
     path('import',views.importFichier),
+   
 ]
