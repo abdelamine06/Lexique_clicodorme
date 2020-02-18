@@ -16,7 +16,6 @@ class TableTransformation(models.Model):
     Infos = models.TextField(max_length=100, null=False)
 
 class Mot(models.Model):
-    MotID = models.AutoField(null=False, primary_key=True)
-    Mot = models.CharField(max_length=50, null=False)
+    Mot = models.CharField(max_length=50, null=False,primary_key=True)
     Table = models.IntegerField(null=False)
     Infos = models.TextField(max_length=250,null=False)

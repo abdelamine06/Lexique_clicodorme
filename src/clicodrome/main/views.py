@@ -18,7 +18,10 @@ def recherche(request,recherche):
     try:
         mot=Mot.objects.get(Mot=recherche)
     except Mot.DoesNotExist:
-        mot=FormeMot.objects.get(Mot=recherche)
+        try:
+            mot=FormeMot.objects.get(Mot=recherche)
+        except FormeMot.DoesNotExist:
+            return redirect('../')
     res=Mot.objects.all()
     dict={}
     dict['lemme2']=strToDict(mot.Infos)['lemme2']
@@ -49,5 +52,5 @@ def exportFichier(request):
     return redirect('/')
 
 def importFichier(request):
-    importMots("export.txt")
+    importMots("lefff.txt")
     return redirect('/')
