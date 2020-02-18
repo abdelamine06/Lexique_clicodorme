@@ -25,7 +25,7 @@ SECRET_KEY = '#f@34tj@c2)!*^_ay=+z#45ul1b)uyem(5i4vs61rfm0-x0kpe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db_clicodrome',
         'USER': 'root',
-        'PASSWORD': 'amine@2020',
+        'PASSWORD': 'yassir2020',
         'HOST': 'localhost',
         'PORT': '3306',
     }

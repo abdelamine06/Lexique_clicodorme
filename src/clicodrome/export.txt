@@ -1,2 +1,1 @@
-pomme 1 lemme=pomme,cat=nc,lemme2=fruit,lemme3=aliment
-poire 1 lemme=poire,cat=nc,lemme2=fruit,lemme3=aliment
+manger 5 lemme=manger,cat=v,lemme2=[test=test,test2=[test=test]],lemme3=test
