@@ -10,12 +10,12 @@ class FormeMot(models.Model):
 
 class TableTransformation(models.Model):
     TransformationID = models.AutoField(null=False, primary_key=True)
-    NumTab = models.IntegerField(null=False)
+    NumTab = models.IntegerField(null=False, db_index=True)
     Terminaison = models.CharField(max_length=10, null=True)
     Transformation = models.CharField(max_length=10, null=False)
     Infos = models.TextField(max_length=100, null=False)
 
 class Mot(models.Model):
-    Mot = models.CharField(max_length=50, null=False,primary_key=True)
+    Mot = models.CharField(max_length=50, null=False, db_index=True, primary_key=True)
     Table = models.IntegerField(null=False)
     Infos = models.TextField(max_length=250,null=False)
