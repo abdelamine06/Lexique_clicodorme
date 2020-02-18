@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+{% block content %}
+
+<table class="table table-borderless">
+    
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>Mot</td>
+            <td>Infos</td>
+        </tr>
+        
+    </thead>
+    <tbody>
+     
+        {% for mot in mot_list %}
+            <tr>
+                <td>{{mot.Mot}}</td>
+                <td>{{mot.Infos}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

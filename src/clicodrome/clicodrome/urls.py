@@ -25,4 +25,8 @@ urlpatterns = [
     path('exportResultat',views.exportResultat),
     path('export',views.exportFichier),
     path('import',views.importFichier),
+    path('List_mots',views.mot_list),
+    path('edit_mots/<int:id>/',views.mot_form),
+
+    
 ]

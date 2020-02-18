@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+{% block content %} 
+
+<form action="" method="post" autocomplete="off">{% csrf_token %}
+    <div class="row">
+        <div class="col-md-4">
+            {{form.Mot}}
+        </div>
+        <div class="col-md-2">
+            {{form.Infos}}
+        </div>
+    </div>
+    <div class="row">
+      
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-success btn-block btn-md"><i class="fas fa-database"></i>
+                Envoi</button>
+        </div>
+     
+    </div>
+
+</form>
+
+{% endblock content %}

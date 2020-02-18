@@ -6,6 +6,9 @@ from django.views.generic import View
 from main.models import *
 from main.langue import *
 from main.export import *
+from django.views.generic.edit import  UpdateView
+from .forms import MotForm
+
 
 def home(request):
     transformeTous()
@@ -54,3 +57,25 @@ def exportFichier(request):
 def importFichier(request):
     importMots("lefff.txt")
     return redirect('/')
+
+def mot_list(request):
+    context =  Mot.objects.all()
+    return render(request, "main/list_mot.html",{'mot_list':context})
+
+def mot_form(request, id=0):
+    if request.method == "GET":
+        if id == 0:
+            form = MotForm()
+        else:
+            mot = Mot.objects.get(pk=id)
+            form = MotForm(instance=mot)
+        return render(request, "main/edit_mot.html", {'form': form})
+    else:
+        if id == 0:
+            form = MotForm(request.POST)
+        else:
+            mot = Mot.objects.get(pk=id)
+            form = MotForm(request.POST,instance= mot)
+        if form.is_valid():
+            form.save()
+        return redirect('/List_mots')
