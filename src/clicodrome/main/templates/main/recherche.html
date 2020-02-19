@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
+{% extends "templates/base.html" %}
+{% block title %}
   <title>Clicodrome</title>
-</head>
+{% endblock title %}
 
-<body>
+{% block content %}
   {% for res in affiche %}
   {{res.0.Mot}}
   <input type='checkbox' onclick='setVisible(this)'>
@@ -29,5 +28,5 @@
     }
 
   </script>
-</body>
-</html>
+
+{% endblock content %}

@@ -1,0 +1,193 @@
+html,body{
+  font-family: Ubuntu Mono, sans-serif;
+  font-weight: bold;
+	text-align: center;
+  margin: 0px;
+	padding: 0px;
+  height: 100%;
+  display: block;
+}
+
+a{
+  color: #505050;
+}
+
+div.lineH{
+  background: #808080;
+  border-radius: 5px;
+  position: relative;
+  height: 1%;
+  width: 80%;
+  top: 0%;
+  left: 10%;
+}
+
+div#ligne2{
+  height: 2px;
+  top: 98%;
+}
+
+div.lineV{
+  background: #808080;
+  border-radius: 5px;
+  position: relative;
+  height: 70%;
+  width: 1%;
+  top: 15%;
+  float: right;
+}
+
+div#nav{
+  background-image: linear-gradient(to right, #ffffff, #f9f9f9, #f2f2f2, #ececec, #e6e6e6);
+  position: relative;
+  float: left;
+  margin-right: 0;
+  height: 70%;
+  width: 20%;
+  top: 0px;
+  left: 0px;
+}
+
+div#recherche{
+  color: #808080;
+  position: relative;
+	text-align: center;
+  float: left;
+  margin-top: 25%;
+  height: 25%;
+  width: 99%;
+  top: 0%;
+  left: 0%;
+  overflow: auto;
+}
+
+div#recherche form{
+  position: relative;
+  height: auto;
+  width: 100%;
+  top: auto;
+  left: 0%;
+}
+
+div#recherche input[type="search"]{
+  background: #FFFFFF;
+  color: #CCCCCC;
+  border-style: solid;
+  border-width: thin;
+  position: relative;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  height: auto;
+  width: 66%;
+  top: 0%;
+  left: 5%;
+}
+
+div#recherche input[type="submit"]{
+  background: #FFFFFF;
+  color: #CCCCCC;
+  border-style: solid;
+  border-width: thin;
+  position: relative;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-right: 10%;
+  height: auto;
+  width: 15%;
+  top: 0%;
+  float: right;
+}
+
+div#recherche input[type="checkbox"]{
+  position: absolute;
+  left: -9999px;
+}
+
+div#recherche label {
+  background: #58B957;
+  color: #FFFFFF;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color .2s;
+  line-height: 20px;
+  padding-left: 2%;
+  padding-right: 2%;
+  position: relative;
+  border-style: none;
+  border-radius: 5px;
+  height: auto;
+  width: 30%;
+}
+
+div#recherche input[type="checkbox"]:checked+label{
+    background: #DB524C;
+}
+
+div#connexion{
+  position: relative;
+  height: 25%;
+  width: 99%;
+  top: 40%;
+  left: 0%;
+}
+
+div#export{
+  position: relative;
+  height: 25%;
+  width: 99%;
+  top: 40%;
+  left: 0%;
+}
+
+div#export button{
+  background: #E6E6E6;
+  color: #808080;
+  border-color: #808080;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  border-style: solid;
+  border-radius: 5px;
+  height: auto;
+  width: 60%;
+}
+
+div#content{
+  background-image: linear-gradient(to left, #ffffff, #f9f9f9, #f2f2f2, #ececec, #e6e6e6);
+  position: relative;
+  margin: : 0px;
+  height: 70%;
+  width: 80%;
+  top: 0px;
+  left: 20%;
+}
+
+div#credit{
+  background-image: linear-gradient(to bottom, #cccccc, #d2d2d2, #d9d9d9, #dfdfdf, #e6e6e6);
+  color: #808080;
+  position: relative;
+  margin: : 0px;
+  height: 30%;
+  width: 100%;
+  top: auto;
+  left: 0px;
+}
+
+
+div#infosProjet{
+  position: relative;
+  margin-left: 20%;
+  height: 84%;
+  width: 30%;
+  top: 15%;
+  float: left;
+}
+
+div#equipe{
+  position: relative;
+  margin-right: 20%;
+  height: 84%;
+  width: 30%;
+  top: 15%;
+  float: right;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block title %}
+    {% endblock title %}
+  </head>
+
+  <body>
+    <div id="nav">
+      <div class="lineV"></div>
+      <div id="recherche">
+        <font size="5">Rechercher</font><br><br>
+        <form method="get" action="/recherche">
+          <input type="search" name="recherche" value="">
+          <input type="submit" name="go" value="Go!"><br><br>
+          <input type="checkbox" id="v" name="v"><label for="v">Verbe</label>
+          <input type="checkbox" id="n" name="n"><label for="n">Nom</label>
+          <input type="checkbox" id="adj" name="adj"><label for="adj">Adjectif</label><br>
+          <input type="checkbox" id="adv" name="adv"><label for="adv">Adverbe</label>
+          <input type="checkbox" id="exp" name="exp"><label for="exp">Expression</label>
+        </form>
+      </div>
+      <div id="connexion">
+        <div id="ligne1" class="lineH"></div>
+        {% block connexion %}
+        {% endblock connexion %}
+        <div id="ligne2" class="lineH"></div>
+      </div>
+      <div id="export">
+        <button type="button" name="button" action="/export">Exporter</button>
+      </div>
+    </div>
+    {% block content %}
+    {% endblock content %}
+    <div id="credit">
+      <div id="ligne3" class="lineH"></div>
+      <div id="infosProjet">
+        Informations<br><br><br>
+        Codé avec Python(Django)/Javascript<br><br>
+        <a href="/aide">Documentation structure</a><br><br>
+        <a target="_blank" href="https://icons8.com/icons"></a> Icons by <a target="_blank" href="https://icons8.com">Icons8</a><br><br>
+        Projet de Master 1 Informatique<br><br>
+        Université de Bordeaux
+      </div>
+      <div id="equipe">
+        Équipe<br><br><br>
+        ROUSSEL Damien<br><br>
+        DIALLO Abdoul<br><br>
+        MEDHAOUI Abdelamine<br><br>
+        DAOUDI Yassir<br><br>
+        EL GUERCH Souhail
+      </div>
+    </div>
+  </body>
+
+</html>

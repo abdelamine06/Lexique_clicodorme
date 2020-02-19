@@ -11,7 +11,7 @@ from .forms import MotForm
 
 
 def home(request):
-    transformeTous()
+    #transformeTous()
     return render(request,"main/home.html",locals())
 
 def tmp(request):
