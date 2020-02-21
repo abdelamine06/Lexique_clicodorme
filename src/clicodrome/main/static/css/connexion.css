@@ -1,0 +1,171 @@
+div#inscription{
+  position: absolute;
+  color: #E6E6E6;
+  text-align: center;
+  margin: 0%;
+  height: 100%;
+  width: 50%;
+  top: 0%;
+  left: 0%;
+}
+
+span#inscription{
+  color: #808080;
+  font-weight: bold;
+  font-size: 150%;
+  position: absolute;
+  width: 50%;
+  top: 25%;
+  left: 35%;
+}
+
+div#inscription form{
+  position: absolute;
+  height: 50%;
+  width: 70%;
+  top: 40%;
+  left: 20%;
+}
+
+div#inscription .error{
+  color: #DB524C;
+}
+
+div#imgInscription{
+  position: relative;
+  display: block;
+  float: left;
+  height: 100%;
+  width: 24px;
+  top: 0%;
+  left: 30%;
+}
+
+div#imgInscription img{
+  margin-bottom: 4px;
+  width: 24px;
+  height: 24px;
+}
+div#imgInscription img#username{
+  margin-top: 5%;
+}
+
+div#formInscription{
+  position: relative;
+  display: block;
+  float: left;
+  height: 100%;
+  width: 70%;
+  top: 0%;
+  left: 20%;
+}
+
+div#formInscription input{
+  position: relative;
+  color: #808080;
+  background: #E6E6E6;
+  border-color: #808080;
+  border-radius: 5px;
+  border-style: solid;
+  margin-right: 10%;
+  margin-bottom: 5px;
+  padding-left: 1%;
+  height: 24px;
+  float: right;
+  width: 70%;
+}
+
+div#formInscription input[type="submit"]{
+  width: 40%;
+}
+
+div#ligne5{
+  position: absolute;
+  height: 50%;
+  width: 2px;
+  top: 25%;
+  left: 50%;
+}
+
+div#connect{
+  position: absolute;
+  color: #E6E6E6;
+  height: 100%;
+  width: 50%;
+  top: 0%;
+  left: 50%;
+}
+
+span#connect{
+  color: #808080;
+  font-weight: bold;
+  font-size: 150%;
+  position: absolute;
+  width: 50%;
+  top: 25%;
+  left: 10%;
+}
+
+div#connect form{
+  position: absolute;
+  width: 70%;
+  top: 50%;
+  left: 5%;
+}
+
+div#connect .error{
+  color: #DB524C;
+}
+
+div#imgConnexion{
+  position: relative;
+  display: block;
+  float: left;
+  height: 100%;
+  width: 24px;
+  top: 0%;
+  left: 15%;
+}
+
+div#imgConnexion img{
+  margin-bottom: 4px;
+  width: 24px;
+  height: 24px;
+}
+div#imgConnexion img#username{
+  margin-top: 5%;
+}
+
+div#formConnnexion{
+  position: relative;
+  display: block;
+  float: left;
+  height: 100%;
+  width: 70%;
+  top: 0%;
+  left: 5%;
+}
+
+div#formConnnexion input{
+  position: relative;
+  color: #808080;
+  background: #E6E6E6;
+  border-color: #808080;
+  border-radius: 5px;
+  border-style: solid;
+  margin-right: 10%;
+  margin-bottom: 5px;
+  padding-left: 1%;
+  height: 24px;
+  float: right;
+  width: 70%;
+}
+
+div#formConnnexion input:valid{
+color: #808080;
+background: #E6E6E6;
+}
+
+div#formConnnexion input[type="submit"]{
+  width: 40%;
+}

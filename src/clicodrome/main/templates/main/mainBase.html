@@ -1,0 +1,67 @@
+<html>
+  <head>
+    {% block title %}
+    {% endblock title %}
+    <link type="text/css" rel="stylesheet" href="../static/css/mainBase.css">
+    <link type="text/css" rel="stylesheet" href="static/css/mainBase.css">
+  </head>
+
+  <body>
+    <div id="nav">
+      <div class="lineV"></div>
+      <div id="recherche">
+        <font size="5">Rechercher</font><br><br>
+        <form method="get" action="/recherche">
+          <input type="search" name="recherche" value="">
+          <input type="submit" name="go" value="Go!"><br><br>
+          <input type="checkbox" id="v" name="v"><label for="v">Verbe</label>
+          <input type="checkbox" id="n" name="n"><label for="n">Nom</label>
+          <input type="checkbox" id="adj" name="adj"><label for="adj">Adjectif</label><br>
+          <input type="checkbox" id="adv" name="adv"><label for="adv">Adverbe</label>
+          <input type="checkbox" id="exp" name="exp"><label for="exp">Expression</label>
+        </form>
+      </div>
+      <div id="connexion">
+        <div id="ligne1" class="lineH"></div>
+        {% if is_user %}
+          <img id="user" src="../../static/images/user.png" width='24' height='24'>
+          <span id="name">{{user.first_name}} {{user.last_name}}</span><br><br>
+          <button id="editProfile" type="button" onclick="location.href='/editProfile'">Mon compte</button>
+          <button id="deconnexion" type="button" onclick="location.href='/deconnexion'">Déconnexion</button>
+        {% else %}
+          <button id="connexion" type="button" onclick="location.href='/connexion'">Connexion</button>
+        {% endif %}
+        <div id="ligne2" class="lineH"></div>
+      </div>
+      <div id="export">
+        <button id="edit" type="button" name="button" onclick="location.href='/admin'">Editer</button>
+        <button id="import" type="button" name="button" onclick="location.href='/import'">Importer</button>
+        <button id="export" type="button" name="button" onclick="location.href='/export'">Exporter</button>
+      </div>
+    </div>
+    <div id="content">
+      {% block content %}
+      {% endblock content %}
+    </div>
+    <div id="credit">
+      <div id="ligne3" class="lineH"></div>
+      <div id="infosProjet">
+        Informations<br><br><br>
+        Codé avec Python(Django)/Javascript<br><br>
+        <a href="/aide">Documentation structure</a><br><br>
+        <a target="_blank" href="https://icons8.com/icons"></a> Icons by <a target="_blank" href="https://icons8.com">Icons8</a><br><br>
+        Projet de Master 1 Informatique<br><br>
+        Université de Bordeaux
+      </div>
+      <div id="equipe">
+        Équipe<br><br><br>
+        ROUSSEL Damien<br><br>
+        DIALLO Abdoul<br><br>
+        MEDHAOUI Abdelamine<br><br>
+        DAOUDI Yassir<br><br>
+        EL GUERCH Souhail
+      </div>
+    </div>
+  </body>
+
+</html>

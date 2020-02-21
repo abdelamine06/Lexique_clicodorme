@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
+{% extends "main/mainBase.html" %}
+{% block title %}
   <title>Clicodrome</title>
-</head>
+{% endblock title %}
 
-<body>
-  <form method="get" action="/recherche">
-    Rechercher:
-    <input type="search" name="recherche">
-    <button type="button" autofocus onclick="location.href='/list_mots';">Liste mots</button>
-  </form>
-</body>
-</html>
+{% block content %}
+{% endblock content %}
