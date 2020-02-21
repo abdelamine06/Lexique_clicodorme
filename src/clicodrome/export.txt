@@ -1,1 +1,5 @@
+carotte 1 lemme=carotte,cat=nc,lemme2=legume,lemme3=aliment
+content 2 lemme=content,cat=adj,lemme2=test,lemme3=test
 manger 5 lemme=manger,cat=v,lemme2=[test=test,test2=[test=test]],lemme3=test
+poire 1 lemme=poire,cat=nc,lemme2=fruit,lemme3=aliment
+pomme 1 lemme=pomme,cat=nc,lemme2=fruit,lemme3=aliment
