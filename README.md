@@ -29,8 +29,7 @@ flex-direction: row";
 
 Le Lexique des formes fĺechies du francais, appelé le **LeFFF** est un lexique contenant des mots ainsi que les formes fléchies de chacun des mots (conjugaison et déclinaisons du mot). 
 Aujourd'hui il n'existe pas d'outil permettant d'interagir avec ce lexique, que ce soit pour l'enrichir ou le corriger.
-L'objectif du projet est donc de réaliser une application web facilitant la manipulation de ce lexique.  
-
+L'objectif du projet est donc de réaliser une application web facilitant la manipulation de ce lexique, tout en permettant aux contributeurs d'enrichir la base de donnée du lexique à travers l'ajout d'expressions ou de mots.
 <a name="realease1"></a>
 ## 1ère release - 15 février 2019
 A ce stade du développment à été développé :
@@ -160,7 +159,7 @@ Vous trouverez dans le répertoire ``` organiz``` les comptes rendus des différ
 
 Vous trouverez dans le répertoire ``` docs ```  la documentation du projet (cachier des besoins et mémoire) au format LaTeX.
 
-Vous trouverez dans le répertoire ``` src ```  le code de l'application web du projet. Cette application possède un back-end réalisé en Python avec [Django](https://www.djangoproject.com) et le front réalisé avec [XXXX](https://XXXXXXXX/).  
+Vous trouverez dans le répertoire ``` src ```  le code de l'application web du projet. Cette application possède un back-end réalisé en Python avec [Django](https://www.djangoproject.com) et le front réalisé avec [js, css,html, jquery](https://XXXXXXXX/).  
 
 
 <a name="team"></a>
