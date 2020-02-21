@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.models import User,Group
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import View
@@ -9,9 +10,9 @@ from main.export import *
 from django.views.generic.edit import  UpdateView
 from .forms import MotForm
 
-
 def home(request):
     #transformeTous()
+    is_user=request.user.is_authenticated
     return render(request,"main/home.html",locals())
 
 def tmp(request):
@@ -40,6 +41,7 @@ def recherche(request,recherche):
             affiche+=[[r]+[formes]]
             resultat+=[r.Mot]
     request.session['resultat']=resultat
+    is_user=request.user.is_authenticated
     return render(request,"main/recherche.html",locals())
 
 def exportResultat(request):

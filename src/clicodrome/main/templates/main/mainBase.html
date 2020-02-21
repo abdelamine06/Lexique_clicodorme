@@ -1,8 +1,9 @@
-<!DOCTYPE html>
 <html>
   <head>
     {% block title %}
     {% endblock title %}
+    <link type="text/css" rel="stylesheet" href="../static/css/mainBase.css">
+    <link type="text/css" rel="stylesheet" href="static/css/mainBase.css">
   </head>
 
   <body>
@@ -22,16 +23,26 @@
       </div>
       <div id="connexion">
         <div id="ligne1" class="lineH"></div>
-        {% block connexion %}
-        {% endblock connexion %}
+        {% if is_user %}
+          <img id="user" src="../../static/images/user.png" width='24' height='24'>
+          <span id="name">{{user.first_name}} {{user.last_name}}</span><br><br>
+          <button id="editProfile" type="button" onclick="location.href='/editProfile'">Mon compte</button>
+          <button id="deconnexion" type="button" onclick="location.href='/deconnexion'">Déconnexion</button>
+        {% else %}
+          <button id="connexion" type="button" onclick="location.href='/connexion'">Connexion</button>
+        {% endif %}
         <div id="ligne2" class="lineH"></div>
       </div>
       <div id="export">
-        <button type="button" name="button" action="/export">Exporter</button>
+        <button id="edit" type="button" name="button" onclick="location.href='/admin'">Editer</button>
+        <button id="import" type="button" name="button" onclick="location.href='/import'">Importer</button>
+        <button id="export" type="button" name="button" onclick="location.href='/export'">Exporter</button>
       </div>
     </div>
-    {% block content %}
-    {% endblock content %}
+    <div id="content">
+      {% block content %}
+      {% endblock content %}
+    </div>
     <div id="credit">
       <div id="ligne3" class="lineH"></div>
       <div id="infosProjet">

@@ -1,0 +1,35 @@
+{% extends "main/mainBase.html" %}
+{% block title %}
+  <title>Mon compte</title>
+  <link rel="stylesheet" href="static/css/editProfile.css">
+{% endblock title %}
+
+{% block content %}
+  <div id="profile">
+    <span id="profile">Mon compte</span>
+    <form class="profile" action="/editProfile" method="post">
+      {% csrf_token %}
+      {% if error %}
+      <span class="error"="error">La confirmation du mot de passe est différente du mot de passe</span><br><br>
+      {% endif %}
+      <div id="imgprofile">
+        <img id="username" src="../../static/images/user.png" width='24' height='24'>
+        <img id="prenom" src="../../static/images/user.png" width='24' height='24'>
+        <img id="nom" src="../../static/images/user.png" width='24' height='24'>
+        <img id="email" src="../../static/images/mail.png" width='24' height='24'>
+        <img id="password" src="../../static/images/lock.png" width='24' height='24'>
+        <img id="password2" src="../../static/images/lock.png" width='24' height='24'>
+      </div>
+      <div id="formprofile">
+        <input type="text" name="username" placeholder="Nom d'utilisateur" value="{{user.username}}"><br>
+        <input type="text" name="prenom" placeholder="Prénom" value="{{user.first_name}}"><br>
+        <input type="text" name="nom" placeholder="Nom" value="{{user.last_name}}"><br>
+        <input type="text" name="mail" placeholder="Email" value="{{user.email}}"><br>
+        <input type="password" name="password" placeholder="Mot de passe"><br>
+        <input type="password" name="password2" placeholder="Confirmation"><br>
+        <input type="submit" name="inscription" value="Sauvegarder"><br>
+        <button type="button" name="button" href="/deleteProfile">Supprimer mon compte</button>
+      </div>
+    </form>
+  </div>
+{% endblock content %}
