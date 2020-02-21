@@ -1,0 +1,36 @@
+
+plan pour la release
+
+-organisation de la base de données
+-comment enregistrer un mot 
+    structure de donnees pour le stockage
+    des idées d'algorithmes
+
+
+
+***retour le client ******
+
+WORD          POSITION OF SPEECH     LEMMA      MORPHOLOGY TABLE           INFO
+Contentes       adjectif             content        T1                     [attribut,valeur]
+   
+
+ *******transducteur********
+ un transducteur T1 qui forme le  feminin pluriel de content
+ il ajoute la terminaison es au mot content 
+ (.*)====>es [gender:female,number:singular] 
+
+******unificateur***********
+
+gésir   T1 [sujet[person:3,number=singular]pos=verb,lexème=gésir]
+frémir  T2 [sujet[person:1,2,3,number=singular]pos=verb,lexème=frémir]
+
+pour l'unification entre ces deux cas on aura frémir à la 3 personne du singulier
+
+                *.is  sujet[person:1,number=singular]   rien à faire 
+                *.is  sujet[person:2,number=singular]   rien à faire
+T1 U T2
+                *.it  sujet[person:3,number=singular]   bonne correspondance conjugaison à générer
+ 
+ 
+
+
