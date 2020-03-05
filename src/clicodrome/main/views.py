@@ -16,6 +16,14 @@ def home(request):
     return render(request,"main/home.html",locals())
 
 def tmp(request):
+    request.session['recherche']={'v':request.GET.get('v'),
+                                'n':request.GET.get('n'),
+                                'adj':request.GET.get('adj'),
+                                'adv':request.GET.get('adv'),
+                                'exp':request.GET.get('exp'),
+                                'degre1':request.GET.get('degre1'),
+                                'degre2':request.GET.get('degre2'),
+                                'degre3':request.GET.get('degre3')}
     return redirect('/recherche/'+request.GET.get("recherche"))
 
 def recherche(request,recherche):
@@ -26,14 +34,29 @@ def recherche(request,recherche):
             mot=FormeMot.objects.get(Mot=recherche)
         except FormeMot.DoesNotExist:
             return redirect('../')
-    res=Mot.objects.all()
-    dict={}
-    dict['lemme2']=strToDict(mot.Infos)['lemme2']
+    res=[]
+    dict={'lemmes':{}}
+    recherche=request.session['recherche']
+    if recherche['v']:
+        res+=Mot.objects.filter(Cat='v')
+    if recherche['n']:
+        res+=Mot.objects.filter(Cat='nc')
+    if recherche['adj']:
+        res+=Mot.objects.filter(Cat='adj')
+    if recherche['adv']:
+        res+=Mot.objects.filter(Cat='adv')
+    if recherche['exp']:
+        res+=Mot.objects.filter(Cat='exp')
+    if recherche['degre1']:
+        dict['lemmes']['lemme1']=strToDict(mot.Infos)['lemmes']['lemme1']
+    if recherche['degre2']:
+        dict['lemmes']['lemme2']=strToDict(mot.Infos)['lemmes']['lemme2']
+    if recherche['degre3']:
+        dict['lemmes']['lemme3']=strToDict(mot.Infos)['lemmes']['lemme3']
     affiche=[]
     resultat=[]
     for r in res:
-        test=unification(strToDict(r.Infos),dict)
-        if test!={}:
+        if unifiable(strToDict(r.Infos),dict):
             transformations=TableTransformation.objects.filter(NumTab=r.Table)
             formes=[]
             for transformation in transformations:
