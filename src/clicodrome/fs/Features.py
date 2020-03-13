@@ -2,13 +2,13 @@ from .Feature import *
 
 class Features():
     
-    features = set()
+    #features = set()
     
-    def __init__(self, features):
+    def __init__(self, features=list()):
         self.features = features
     
     def add(self, feature):
-        self.features.add(feature)
+        self.features.append(feature)
         
     def toString(self):
         result = "["

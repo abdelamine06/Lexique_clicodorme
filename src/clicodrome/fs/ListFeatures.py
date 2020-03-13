@@ -2,22 +2,20 @@ from .Features import *
 
 class ListFeatures():
     
-    list = list()
-    
     def __init__(self, list):
         self.list = list
     
     def add(self, features):
-        self.list.add(features)
+        self.list.append(features)
         
     def toString(self):
-        result = "<"
+        result = ''
         first = True
         for item in self.list:
             if (first):
                 first = False
             else:
-                result += ','
+                result += "|"
             result += item.toString()
-        return result + ">"
+        return result
     

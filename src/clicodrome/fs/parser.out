@@ -1,0 +1,238 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> features
+Rule 1     features -> LBRACKET list_feature RBRACKET
+Rule 2     features -> LBRACKET RBRACKET
+Rule 3     list_feature -> list_feature COMMA feature
+Rule 4     list_feature -> feature
+Rule 5     feature -> IDENTIFIER COLON atom
+Rule 6     feature -> IDENTIFIER COLON features
+Rule 7     feature -> IDENTIFIER COLON list_features_plus
+Rule 8     atom -> IDENTIFIER
+Rule 9     atom -> atom PIPE IDENTIFIER
+Rule 10    list_features_plus -> list_features PIPE features
+Rule 11    list_features -> list_features PIPE features
+Rule 12    list_features -> features
+
+Terminals, with rules where they appear
+
+COLON                : 5 6 7
+COMMA                : 3
+IDENTIFIER           : 5 6 7 8 9
+LBRACKET             : 1 2
+PIPE                 : 9 10 11
+RBRACKET             : 1 2
+error                : 
+
+Nonterminals, with rules where they appear
+
+atom                 : 5 9
+feature              : 3 4
+features             : 6 10 11 12 0
+list_feature         : 1 3
+list_features        : 10 11
+list_features_plus   : 7
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . features
+    (1) features -> . LBRACKET list_feature RBRACKET
+    (2) features -> . LBRACKET RBRACKET
+
+    LBRACKET        shift and go to state 2
+
+    features                       shift and go to state 1
+
+state 1
+
+    (0) S' -> features .
+
+
+
+state 2
+
+    (1) features -> LBRACKET . list_feature RBRACKET
+    (2) features -> LBRACKET . RBRACKET
+    (3) list_feature -> . list_feature COMMA feature
+    (4) list_feature -> . feature
+    (5) feature -> . IDENTIFIER COLON atom
+    (6) feature -> . IDENTIFIER COLON features
+    (7) feature -> . IDENTIFIER COLON list_features_plus
+
+    RBRACKET        shift and go to state 4
+    IDENTIFIER      shift and go to state 6
+
+    list_feature                   shift and go to state 3
+    feature                        shift and go to state 5
+
+state 3
+
+    (1) features -> LBRACKET list_feature . RBRACKET
+    (3) list_feature -> list_feature . COMMA feature
+
+    RBRACKET        shift and go to state 7
+    COMMA           shift and go to state 8
+
+
+state 4
+
+    (2) features -> LBRACKET RBRACKET .
+
+    $end            reduce using rule 2 (features -> LBRACKET RBRACKET .)
+    RBRACKET        reduce using rule 2 (features -> LBRACKET RBRACKET .)
+    COMMA           reduce using rule 2 (features -> LBRACKET RBRACKET .)
+    PIPE            reduce using rule 2 (features -> LBRACKET RBRACKET .)
+
+
+state 5
+
+    (4) list_feature -> feature .
+
+    RBRACKET        reduce using rule 4 (list_feature -> feature .)
+    COMMA           reduce using rule 4 (list_feature -> feature .)
+
+
+state 6
+
+    (5) feature -> IDENTIFIER . COLON atom
+    (6) feature -> IDENTIFIER . COLON features
+    (7) feature -> IDENTIFIER . COLON list_features_plus
+
+    COLON           shift and go to state 9
+
+
+state 7
+
+    (1) features -> LBRACKET list_feature RBRACKET .
+
+    $end            reduce using rule 1 (features -> LBRACKET list_feature RBRACKET .)
+    RBRACKET        reduce using rule 1 (features -> LBRACKET list_feature RBRACKET .)
+    COMMA           reduce using rule 1 (features -> LBRACKET list_feature RBRACKET .)
+    PIPE            reduce using rule 1 (features -> LBRACKET list_feature RBRACKET .)
+
+
+state 8
+
+    (3) list_feature -> list_feature COMMA . feature
+    (5) feature -> . IDENTIFIER COLON atom
+    (6) feature -> . IDENTIFIER COLON features
+    (7) feature -> . IDENTIFIER COLON list_features_plus
+
+    IDENTIFIER      shift and go to state 6
+
+    feature                        shift and go to state 10
+
+state 9
+
+    (5) feature -> IDENTIFIER COLON . atom
+    (6) feature -> IDENTIFIER COLON . features
+    (7) feature -> IDENTIFIER COLON . list_features_plus
+    (8) atom -> . IDENTIFIER
+    (9) atom -> . atom PIPE IDENTIFIER
+    (1) features -> . LBRACKET list_feature RBRACKET
+    (2) features -> . LBRACKET RBRACKET
+    (10) list_features_plus -> . list_features PIPE features
+    (11) list_features -> . list_features PIPE features
+    (12) list_features -> . features
+
+    IDENTIFIER      shift and go to state 11
+    LBRACKET        shift and go to state 2
+
+    atom                           shift and go to state 12
+    features                       shift and go to state 13
+    list_features_plus             shift and go to state 14
+    list_features                  shift and go to state 15
+
+state 10
+
+    (3) list_feature -> list_feature COMMA feature .
+
+    RBRACKET        reduce using rule 3 (list_feature -> list_feature COMMA feature .)
+    COMMA           reduce using rule 3 (list_feature -> list_feature COMMA feature .)
+
+
+state 11
+
+    (8) atom -> IDENTIFIER .
+
+    PIPE            reduce using rule 8 (atom -> IDENTIFIER .)
+    RBRACKET        reduce using rule 8 (atom -> IDENTIFIER .)
+    COMMA           reduce using rule 8 (atom -> IDENTIFIER .)
+
+
+state 12
+
+    (5) feature -> IDENTIFIER COLON atom .
+    (9) atom -> atom . PIPE IDENTIFIER
+
+    RBRACKET        reduce using rule 5 (feature -> IDENTIFIER COLON atom .)
+    COMMA           reduce using rule 5 (feature -> IDENTIFIER COLON atom .)
+    PIPE            shift and go to state 16
+
+
+state 13
+
+    (6) feature -> IDENTIFIER COLON features .
+    (12) list_features -> features .
+
+    RBRACKET        reduce using rule 6 (feature -> IDENTIFIER COLON features .)
+    COMMA           reduce using rule 6 (feature -> IDENTIFIER COLON features .)
+    PIPE            reduce using rule 12 (list_features -> features .)
+
+
+state 14
+
+    (7) feature -> IDENTIFIER COLON list_features_plus .
+
+    RBRACKET        reduce using rule 7 (feature -> IDENTIFIER COLON list_features_plus .)
+    COMMA           reduce using rule 7 (feature -> IDENTIFIER COLON list_features_plus .)
+
+
+state 15
+
+    (10) list_features_plus -> list_features . PIPE features
+    (11) list_features -> list_features . PIPE features
+
+    PIPE            shift and go to state 17
+
+
+state 16
+
+    (9) atom -> atom PIPE . IDENTIFIER
+
+    IDENTIFIER      shift and go to state 18
+
+
+state 17
+
+    (10) list_features_plus -> list_features PIPE . features
+    (11) list_features -> list_features PIPE . features
+    (1) features -> . LBRACKET list_feature RBRACKET
+    (2) features -> . LBRACKET RBRACKET
+
+    LBRACKET        shift and go to state 2
+
+    features                       shift and go to state 19
+
+state 18
+
+    (9) atom -> atom PIPE IDENTIFIER .
+
+    PIPE            reduce using rule 9 (atom -> atom PIPE IDENTIFIER .)
+    RBRACKET        reduce using rule 9 (atom -> atom PIPE IDENTIFIER .)
+    COMMA           reduce using rule 9 (atom -> atom PIPE IDENTIFIER .)
+
+
+state 19
+
+    (10) list_features_plus -> list_features PIPE features .
+    (11) list_features -> list_features PIPE features .
+
+    RBRACKET        reduce using rule 10 (list_features_plus -> list_features PIPE features .)
+    COMMA           reduce using rule 10 (list_features_plus -> list_features PIPE features .)
+    PIPE            reduce using rule 11 (list_features -> list_features PIPE features .)
+

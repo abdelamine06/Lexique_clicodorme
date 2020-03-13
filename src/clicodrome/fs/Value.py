@@ -7,7 +7,9 @@ class Value():
     
     def toString(self):
        if (isinstance(self.val, str)):
-           return '"' + self.val + '"'
+           return self.val
+       elif (isinstance(self.val, (int, float, complex))):
+           return str(self.val)
        else:
            return self.val.toString()
         
