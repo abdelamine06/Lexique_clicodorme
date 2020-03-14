@@ -8,21 +8,22 @@ class Atom():
     def add(self, atom):
         self.atoms.append(atom)
         
-    def unify(self, other):
+    def unify(self, other, effect):
         #print('Atom.Unification ' + self.toString() + ' U ' + other.toString())
         result = Atom(list())
-        otherAtoms = other.clone()
         found = False
         for item1 in self.atoms:
-            for item2 in otherAtoms.atoms:
+            for item2 in other.atoms:
                 if item1 == item2:
                     result.add(item1)
                     found = True
                     break
         if found:
             return result
-        else:
+        elif effect:
             raise UnificationException('*** Unification error: ' + self.toString() + ' U ' + other.toString())
+        else:
+            return None
         
     def clone(self):
         result = Atom(list())

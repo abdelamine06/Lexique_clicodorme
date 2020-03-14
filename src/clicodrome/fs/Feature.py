@@ -15,9 +15,9 @@ class Feature():
     def isFlag(self):
         return self.flag
     
-    def unify(self, other):
+    def unify(self, other, effect):
         # print('Feature.unification ' + self.toString() + ' U ' + other.toString())
-        value = self.value.unify(other.value);
+        value = self.value.unify(other.value, effect);
         if value == None:
             return None
         else:

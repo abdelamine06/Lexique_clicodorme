@@ -74,8 +74,7 @@ class Parser():
     # attr:val
     def p_feature(self, p):
         '''feature : IDENTIFIER COLON atom
-                |  IDENTIFIER COLON features
-                |  IDENTIFIER COLON list_features_plus'''
+                |  IDENTIFIER COLON list_features'''
         p[0] = Feature(p[1], Value(p[3]))
 
     # attr:val
@@ -88,12 +87,6 @@ class Parser():
         else:
             p[0] = Atom(list())
             p[0].add(p[1])
-
-    # [...], [...], [...]
-    def p_list_features_plus(self, p):
-        'list_features_plus : list_features PIPE features'
-        p[0] = p[1]
-        p[0].add(p[3])
 
     # [...], [...], [...]
     def p_list_features(self, p):

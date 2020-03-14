@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'featuresCOLON COMMA IDENTIFIER LBRACKET PIPE RBRACKETfeatures : LBRACKET list_feature RBRACKET\n               | LBRACKET RBRACKETlist_feature : list_feature COMMA feature\n                    | featurefeature : IDENTIFIER COLON atom\n                |  IDENTIFIER COLON features\n                |  IDENTIFIER COLON list_features_plusatom : IDENTIFIER\n                |  atom PIPE IDENTIFIERlist_features_plus : list_features PIPE featureslist_features : list_features PIPE features\n               | features'
+_lr_signature = 'featuresCOLON COMMA IDENTIFIER LBRACKET PIPE RBRACKETfeatures : LBRACKET list_feature RBRACKET\n               | LBRACKET RBRACKETlist_feature : list_feature COMMA feature\n                    | featurefeature : IDENTIFIER COLON atom\n                |  IDENTIFIER COLON list_featuresatom : IDENTIFIER\n                |  atom PIPE IDENTIFIERlist_features : list_features PIPE features\n               | features'
     
-_lr_action_items = {'LBRACKET':([0,9,17,],[2,2,2,]),'$end':([1,4,7,],[0,-2,-1,]),'RBRACKET':([2,3,4,5,7,10,11,12,13,14,18,19,],[4,7,-2,-4,-1,-3,-8,-5,-6,-7,-9,-10,]),'IDENTIFIER':([2,8,9,16,],[6,6,11,18,]),'COMMA':([3,4,5,7,10,11,12,13,14,18,19,],[8,-2,-4,-1,-3,-8,-5,-6,-7,-9,-10,]),'PIPE':([4,7,11,12,13,15,18,19,],[-2,-1,-8,16,-12,17,-9,-11,]),'COLON':([6,],[9,]),}
+_lr_action_items = {'LBRACKET':([0,9,16,],[2,2,2,]),'$end':([1,4,7,],[0,-2,-1,]),'RBRACKET':([2,3,4,5,7,10,11,12,13,14,17,18,],[4,7,-2,-4,-1,-3,-7,-5,-6,-10,-8,-9,]),'IDENTIFIER':([2,8,9,15,],[6,6,11,17,]),'COMMA':([3,4,5,7,10,11,12,13,14,17,18,],[8,-2,-4,-1,-3,-7,-5,-6,-10,-8,-9,]),'PIPE':([4,7,11,12,13,14,17,18,],[-2,-1,-7,15,16,-10,-8,-9,]),'COLON':([6,],[9,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'features':([0,9,17,],[1,13,19,]),'list_feature':([2,],[3,]),'feature':([2,8,],[5,10,]),'atom':([9,],[12,]),'list_features_plus':([9,],[14,]),'list_features':([9,],[15,]),}
+_lr_goto_items = {'features':([0,9,16,],[1,14,18,]),'list_feature':([2,],[3,]),'feature':([2,8,],[5,10,]),'atom':([9,],[12,]),'list_features':([9,],[13,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -31,12 +31,10 @@ _lr_productions = [
   ('features -> LBRACKET RBRACKET','features',2,'p_features','Parser.py',57),
   ('list_feature -> list_feature COMMA feature','list_feature',3,'p_list_feature','Parser.py',65),
   ('list_feature -> feature','list_feature',1,'p_list_feature','Parser.py',66),
-  ('feature -> IDENTIFIER COLON atom','feature',3,'p_feature','Parser.py',75),
-  ('feature -> IDENTIFIER COLON features','feature',3,'p_feature','Parser.py',76),
-  ('feature -> IDENTIFIER COLON list_features_plus','feature',3,'p_feature','Parser.py',77),
+  ('feature -> IDENTIFIER COLON atom','feature',3,'p_feature','Parser.py',76),
+  ('feature -> IDENTIFIER COLON list_features','feature',3,'p_feature','Parser.py',77),
   ('atom -> IDENTIFIER','atom',1,'p_atom','Parser.py',82),
   ('atom -> atom PIPE IDENTIFIER','atom',3,'p_atom','Parser.py',83),
-  ('list_features_plus -> list_features PIPE features','list_features_plus',3,'p_list_features_plus','Parser.py',93),
-  ('list_features -> list_features PIPE features','list_features',3,'p_list_features','Parser.py',99),
-  ('list_features -> features','list_features',1,'p_list_features','Parser.py',100),
+  ('list_features -> list_features PIPE features','list_features',3,'p_list_features','Parser.py',93),
+  ('list_features -> features','list_features',1,'p_list_features','Parser.py',94),
 ]

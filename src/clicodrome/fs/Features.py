@@ -8,16 +8,15 @@ class Features():
     def add(self, feature):
         self.list.append(feature)
         
-    # algo quadratique très moche
-    def unify(self, other):
+    # algo quadratique
+    def unify(self, other, effect):
         #print('Features.unification ' + self.toString() + ' U ' + other.toString())
-        otherFeatures = other.clone()
         result = Features(list())
         for item1 in self.list:
             found = False
-            for item2 in otherFeatures.list:
+            for item2 in other.list:
                 if item1.attr == item2.attr:
-                    feature = item1.unify(item2)
+                    feature = item1.unify(item2, effect)
                     if feature == None:
                         return None
                     else:
@@ -27,15 +26,15 @@ class Features():
                     break
             if (not(found)):
                 result.add(item1)
-        for item2 in otherFeatures.list:
+        for item2 in other.list:
             if not(item2.isFlag()):
                 result.add(item2)
         return result
         
     def clone(self):
         result = Features(list())
-        for feature in self.list:
-            result.add(feature)
+        for item in self.list:
+            result.add(item)
         return result
 
     def toString(self):
