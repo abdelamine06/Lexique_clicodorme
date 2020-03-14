@@ -58,7 +58,7 @@ class Parser():
         if len(p) > 2:
             p[0] = p[2]
         else:
-            p[0] = Features()
+            p[0] = Features(list())
 
     # attr:val, attr:val, ...
     def p_list_feature(self, p):
