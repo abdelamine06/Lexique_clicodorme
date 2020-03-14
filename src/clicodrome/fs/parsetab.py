@@ -36,7 +36,7 @@ _lr_productions = [
   ('feature -> IDENTIFIER COLON list_features_plus','feature',3,'p_feature','Parser.py',77),
   ('atom -> IDENTIFIER','atom',1,'p_atom','Parser.py',82),
   ('atom -> atom PIPE IDENTIFIER','atom',3,'p_atom','Parser.py',83),
-  ('list_features_plus -> list_features PIPE features','list_features_plus',3,'p_list_features_plus','Parser.py',92),
-  ('list_features -> list_features PIPE features','list_features',3,'p_list_features','Parser.py',98),
-  ('list_features -> features','list_features',1,'p_list_features','Parser.py',99),
+  ('list_features_plus -> list_features PIPE features','list_features_plus',3,'p_list_features_plus','Parser.py',93),
+  ('list_features -> list_features PIPE features','list_features',3,'p_list_features','Parser.py',99),
+  ('list_features -> features','list_features',1,'p_list_features','Parser.py',100),
 ]

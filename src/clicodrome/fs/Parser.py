@@ -68,7 +68,8 @@ class Parser():
             p[0] = p[1]
             p[0].add(p[3])
         else:
-            p[0] = Features([p[1]])
+            p[0] = Features(list())
+            p[0].add(p[1])
 
     # attr:val
     def p_feature(self, p):
@@ -85,7 +86,8 @@ class Parser():
             p[0] = p[1]
             p[0].add(p[3])
         else:
-            p[0] = Atom([p[1]])
+            p[0] = Atom(list())
+            p[0].add(p[1])
 
     # [...], [...], [...]
     def p_list_features_plus(self, p):
@@ -101,7 +103,8 @@ class Parser():
             p[0] = p[1]
             p[0].add(p[3])
         else:
-            p[0] = ListFeatures([p[1]])
+            p[0] = ListFeatures(list())
+            p[0].add(p[1])
 
     def p_error(self, p):
         if p:
