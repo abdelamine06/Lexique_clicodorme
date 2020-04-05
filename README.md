@@ -97,7 +97,8 @@ Installer django :
 Installer MySQL :   
 
     $ sudo apt install mysql-server
-    $ sudo apt install mysqlclient
+    $ sudo apt-get install python-dev default-libmysqlclient-dev
+    $ pip3 install mysqlclient
 
 __Création de la base de données de la base:__  
 Après avoir configuré les accès pour MySQL/Django,connectez-vous et créez une nouvelle base de données.  

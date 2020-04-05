@@ -1,3 +1,5 @@
+--Écrit par ROUSSEL Damien, MEDHAOUI Abdelamine, DIALLO Abdoul, DAOUDI Yassir et EL GUERCH Souhail
+
 use db_clicodrome;
 
 insert into main_mot (`Mot`,`Affiche`,`Cat`,`Table`,`Infos`) values ('manger','manger','v',5,'lemmes=[lemme1=manger],cat=v,lemme2=[test=test,test2=[test=test]],lemme3=test');

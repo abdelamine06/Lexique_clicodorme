@@ -1,3 +1,5 @@
+'''Écrit par ROUSSEL Damien, MEDHAOUI Abdelamine, DIALLO Abdoul, DAOUDI Yassir et EL GUERCH Souhail'''
+
 from main.models import *
 import regex
 

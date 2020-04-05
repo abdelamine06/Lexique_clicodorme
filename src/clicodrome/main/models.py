@@ -1,3 +1,5 @@
+'''Écrit par ROUSSEL Damien, MEDHAOUI Abdelamine, DIALLO Abdoul, DAOUDI Yassir et EL GUERCH Souhail'''
+
 from django.db import models
 
 class FormeMot(models.Model):
