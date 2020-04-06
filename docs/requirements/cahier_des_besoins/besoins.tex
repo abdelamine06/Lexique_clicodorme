@@ -46,7 +46,7 @@ La composition des \textbf{transducteurs} nous permettra de construire un \textb
 \newpage
 
 \subsubsection{Unificateur - Importance 5/5}{
-\textbf{L'unificateur} est l'algorithme qui va nous permettre de \textbf{lier} plusieurs \textbf{mots} afin d'en tirer le \textbf{sens}, pour ce faire, il faut faire \textbf{l'union des informations} sur ces mots. S'il y a une \textbf{contradiction} avec ces informations, alors la phrase est \textbf{mal formée} et dans ce cas aucun sens ne sera retourné, sinon on pourra voir quel est le sens de l'expression formée.\par}
+L'unification est une opération qui consiste à tenter de fusionner des informations ensemble, pour cela, il faut vérifier la compatibilité de ces informations entre elles, si jamais des informations sont incompatibles (par exemple singulier et pluriel) dans ce cas l'unification échoue. Si l'opération fonctionne, alors cela signifie que l'on a des informations plus complète sur un mot. Cette opération permet donc de savoir si des mots sont à retourner pour la recherche, ou encore dans un transducteur pour rajouter des informations au mot formé. Pour cela nous avons deux fonctions, une qui va tester si deux mots sont unifiables, et une qui va faire cette tentative de fusion de deux informations. 
 
 \begin{figure}[ht]
     \centering
