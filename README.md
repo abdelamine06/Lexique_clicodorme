@@ -45,7 +45,6 @@ A ce stade du développement à été développé :
     * Ajout d'un mot en base de données
     * Consultation d'un mot (avec ses formes)
     * Import/Export de la base de données
-
 <a name="releaseFinal"></a>
 ## Release finale - Avril 2019
 **Amélioration possibles :**
